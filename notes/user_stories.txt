@@ -1,0 +1,26 @@
+MVP
+---
+
+Brainstorming
+-------------
+
+As a User,
+  I want to Login, 
+  so that I can play the game.
+
+  after I login  want to see my profile,
+  so that I can make team updates.
+
+  I want to see the current 'transfer market'
+  so that I can make an informed decision on for the next race.
+
+  I want to select my team line up before each race,
+  so that I can maximize my score.
+
+  
+
+As an Admin,
+  I want to login,
+  so that I can manage User accounts.
+
+  
