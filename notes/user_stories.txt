@@ -5,6 +5,7 @@ Brainstorming
 -------------
 
 As a User,
+
   I want to Login, 
   so that I can play the game.
 
@@ -17,10 +18,46 @@ As a User,
   I want to select my team line up before each race,
   so that I can maximize my score.
 
-  
+  I want to be able to see the game rules so that I can make an informed decision.
 
+  I want to see a homepage so that can I be enticed to register
+
+  I want to see a race calender so that I can plan for the future.
+
+  I want to see a ranking page so that I can see where I stand.
+
+  I want to see the top 3 users on the homepage.
+
+  Nice to have:
+  I want to see profile pages for drivers, teams, circuits
+
+  I want to see statistics for drivers, chassis, engines
+
+  I want to see visualizations of the above data
+
+  I want to see historical data.
+
+  I want to create a subleague with my friends
+
+  
 As an Admin,
   I want to login,
   so that I can manage User accounts.
+
+  I want to be able to delete accounts
+
+  I want to be able to send users email
+
+  I want to be able to automatically database information as the season progresses through API calls ergast.com/
+
+  I want to deploy in Heroku (AWS?)
+  nice to have:
+
+
+  I want to use a mailer service to send all emails
+
+
+
+
 
   
