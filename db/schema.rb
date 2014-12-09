@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209210238) do
+ActiveRecord::Schema.define(version: 20141209211420) do
 
   create_table "chases", force: true do |t|
     t.string   "name"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20141209210238) do
     t.integer  "chasis_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "race_id"
+    t.integer  "driver1_score"
+    t.integer  "driver2_score"
+    t.integer  "engine_score"
+    t.integer  "chassis_score"
   end
 
   create_table "race_results", force: true do |t|
