@@ -12,4 +12,6 @@ class PlayerTeam < ActiveRecord::Base
   belongs_to :primary_driver, class_name: "Driver", foreign_key: "driver1_id"
   belongs_to :secondary_driver, class_name: "Driver", foreign_key: "driver2_id"
 
+  belongs_to :race
+
 end
