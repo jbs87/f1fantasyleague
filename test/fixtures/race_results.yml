@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  race_id.int: MyString
+  team_member_id: 
+  qualifying_pos: 
+  race_pos: 
+
+two:
+  race_id.int: MyString
+  team_member_id: 
+  qualifying_pos: 
+  race_pos: 
