@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111212130) do
+ActiveRecord::Schema.define(version: 20141209193244) do
 
   create_table "chases", force: true do |t|
     t.string   "name"
     t.integer  "price"
-    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 20141111212130) do
   create_table "drivers", force: true do |t|
     t.string   "name"
     t.integer  "price"
-    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,7 +30,6 @@ ActiveRecord::Schema.define(version: 20141111212130) do
   create_table "engines", force: true do |t|
     t.string   "name"
     t.integer  "price"
-    t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +40,13 @@ ActiveRecord::Schema.define(version: 20141111212130) do
     t.integer  "driver2_id"
     t.integer  "engine_id"
     t.integer  "chasis_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tracks", force: true do |t|
+    t.string   "name"
+    t.datetime "racedate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
