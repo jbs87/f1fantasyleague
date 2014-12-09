@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209220820) do
+ActiveRecord::Schema.define(version: 20141209231438) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 20141209220820) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "playerteam_id"
   end
 
 end
