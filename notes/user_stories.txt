@@ -54,7 +54,7 @@ As an Admin,
   nice to have:
 
 
-  I want to use a mailer service to send all emails
+  I want to use a mailer service to send all emails.
 
 
 
