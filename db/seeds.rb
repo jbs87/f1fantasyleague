@@ -61,5 +61,7 @@ User.create!({ name: 'Marge', email: 'marge@home.net', password: 'a',playerteam_
 User.create!({ name: 'Lisa', email: 'lisa@home.net', password: 'a',playerteam_id: 3 })
 
 PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 1, chassis_manufacturer_id: 2 })
+PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 5, chassis_manufacturer_id: 2 })
+PlayerTeam.create!({ user_id: 1, driver1_id: 3, driver2_id: 1, engine_id: 5, chassis_manufacturer_id: 2 })
 PlayerTeam.create!({ user_id: 2, driver1_id: 4, driver2_id: 6, engine_id: 2, chassis_manufacturer_id: 5 })
 PlayerTeam.create!({ user_id: 3, driver1_id: 6, driver2_id: 8, engine_id: 3, chassis_manufacturer_id: 1 })
