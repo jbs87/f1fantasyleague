@@ -2,7 +2,7 @@ class PlayerTeam < ActiveRecord::Base
   belongs_to :user
 
   belongs_to :engine
-  belongs_to :chasis
+  belongs_to :chassis_manufacturer
   
   # note
   # belongs_to :user, :class_name => 'User', :foreign_key => 'user_id'

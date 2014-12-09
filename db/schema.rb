@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209211420) do
+ActiveRecord::Schema.define(version: 20141209220820) do
 
-  create_table "chases", force: true do |t|
+  create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
     t.integer  "price"
     t.datetime "created_at"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141209211420) do
     t.integer  "driver1_id"
     t.integer  "driver2_id"
     t.integer  "engine_id"
-    t.integer  "chasis_id"
+    t.integer  "chassis_manufacturer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "race_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20141209211420) do
 
   create_table "team_members", force: true do |t|
     t.integer  "driver_id"
-    t.integer  "chassis_id"
+    t.integer  "chassis_manufacturer_id"
     t.integer  "engine_id"
     t.string   "name"
     t.integer  "race_id"

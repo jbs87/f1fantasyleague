@@ -1,4 +1,4 @@
-class Chasis < ActiveRecord::Base
+class ChassisManufacturer < ActiveRecord::Base
   has_many :player_teams
   has_many :team_members
 end
