@@ -1,7 +1,7 @@
 class Driver < ActiveRecord::Base
 
-  has_many :player_teams_as_primary, class_name: "PlayerTeam", source: :primary_driver
-  has_many :player_teams_as_secondary, class_name: "PlayerTeam", source: :secondary_driver
+  has_many :player_teams_as_primary, class_name: "PlayerTeam", foreign_key: "driver1_id"
+  has_many :player_teams_as_secondary, class_name: "PlayerTeam", foreign_key: "driver2_id"
   has_many :team_members
 
   def player_teams
