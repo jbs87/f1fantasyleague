@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development do
   gem 'pry-rails'
   gem "rails-erd"
+  gem "awesome_print", :require => 'ap'
 end
 
 group :test do

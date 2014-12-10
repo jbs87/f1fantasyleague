@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209231438) do
+ActiveRecord::Schema.define(version: 20141210185844) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 20141209231438) do
     t.integer  "round"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "scoring_overviews", force: true do |t|
+    t.integer  "driver_qual"
+    t.integer  "driver_race"
+    t.integer  "chassis_qual"
+    t.integer  "chassis_race"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "team_members", force: true do |t|
