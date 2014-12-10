@@ -8,4 +8,9 @@ class Driver < ActiveRecord::Base
   	PlayerTeam.where("driver1_id = ? or driver2_id = ?", self.id, self.id)
   end
 
+  def score
+  	rwt = TeamMember.where("driver_id = ?", self.id)
+  	pos = RaceResult.where("qualifying_pos = ?", rwt)
+  end
+
 end
