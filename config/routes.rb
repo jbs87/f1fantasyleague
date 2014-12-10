@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
-
-  resources :users,    only: [:index, :show, :new, :create]
-  resources :drivers,  only: [:index]
-
   root 'welcome#index'
 
+  resources :users,         only: [:index, :show, :new, :create]
+  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :drivers,       only: [:index]
+  
+  get 'login' => 'user_sessions#new', :as => :login
+  post 'logout' => 'user_sessions#destroy', :as => :logout
+  
   # resources :products do
   #   resources :reviews, only: [:show, :create, :destroy]
   # end
