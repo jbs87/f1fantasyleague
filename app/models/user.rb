@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
-  has_many :player_teams
+  validates :password, length: { minimum: 1 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :email, uniqueness: true
 
-  has_secure_password
+  has_many :player_teams
 
 end
