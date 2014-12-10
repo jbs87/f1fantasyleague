@@ -34,6 +34,7 @@ gem 'sorcery'
 group :development do
   gem 'pry-rails'
   gem "rails-erd"
+  gem "awesome_print", :require => 'ap'
 end
 
 group :test do

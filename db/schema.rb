@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141210204615) do
+=======
+ActiveRecord::Schema.define(version: 20141210201040) do
+>>>>>>> master
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -25,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141210204615) do
     t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nickname"
   end
 
   create_table "engines", force: true do |t|
@@ -67,6 +72,16 @@ ActiveRecord::Schema.define(version: 20141210204615) do
     t.datetime "updated_at"
   end
 
+  create_table "scoring_overviews", force: true do |t|
+    t.integer  "driver_qual"
+    t.integer  "driver_race"
+    t.integer  "chassis_qual"
+    t.integer  "chassis_race"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position"
+  end
+
   create_table "team_members", force: true do |t|
     t.integer  "driver_id"
     t.integer  "chassis_manufacturer_id"
@@ -93,6 +108,16 @@ ActiveRecord::Schema.define(version: 20141210204615) do
     t.string   "salt"
   end
 
+<<<<<<< HEAD
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+=======
+  create_table "value_overviews", force: true do |t|
+    t.integer  "position"
+    t.integer  "driver_race"
+    t.integer  "chassis_race"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> master
 
 end
