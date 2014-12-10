@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'sorcery'
 
+gem 'foundation-rails'
+
 group :development do
   gem 'pry-rails'
   gem "rails-erd"

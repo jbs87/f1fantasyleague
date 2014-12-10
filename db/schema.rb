@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141210204615) do
-=======
-ActiveRecord::Schema.define(version: 20141210201040) do
->>>>>>> master
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -108,9 +104,8 @@ ActiveRecord::Schema.define(version: 20141210201040) do
     t.string   "salt"
   end
 
-<<<<<<< HEAD
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-=======
+
   create_table "value_overviews", force: true do |t|
     t.integer  "position"
     t.integer  "driver_race"
@@ -118,6 +113,5 @@ ActiveRecord::Schema.define(version: 20141210201040) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
->>>>>>> master
 
 end
