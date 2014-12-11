@@ -19,7 +19,7 @@ Driver.create!({ name: 'Kevin Magnussen', price: 0, nickname: 'kevin_magnussen' 
 Driver.create!({ name: 'Nico Hülkenberg', price: 0, nickname: 'hulkenberg' })
 Driver.create!({ name: 'Sergio Perez', price: 0, nickname: 'perez' })
 Driver.create!({ name: 'Jean-Eric Vergne', price: 0, nickname: 'vergne' })
-Driver.create!({ name: 'Daniil Kvyat', price: 0, nickname: 'kyvat' })
+Driver.create!({ name: 'Daniil Kvyat', price: 0, nickname: 'kvyat' })
 Driver.create!({ name: 'Romain Grosjean', price: 0, nickname: 'grosjean' })
 Driver.create!({ name: 'Pastor Maldonado', price: 0, nickname: 'maldonado' })
 Driver.create!({ name: 'Adrian Sutil', price: 0, nickname: 'sutil' })
