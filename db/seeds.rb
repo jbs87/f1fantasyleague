@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Driver.create!({ name: 'Nico Rosberg', price: 0, nickname: ''  })
+Driver.create!({ name: 'Nico Rosberg', price: 0, nickname: 'rosberg'  })
 Driver.create!({ name: 'Lewis Hamilton', price: 0, nickname: ''  })
 Driver.create!({ name: 'Daniel Ricciardo', price: 0, nickname: ''  })
 Driver.create!({ name: 'Sebastian Vettel', price: 0, nickname: ''  })

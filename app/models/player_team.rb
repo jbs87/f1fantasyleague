@@ -23,7 +23,7 @@ class PlayerTeam < ActiveRecord::Base
   end
 
   def totalscore
-  	binding.pry
+  	# binding.pry
   	d1score + d2score + self.engine.score + self.chassis_manufacturer.score
   end
 
