@@ -10,10 +10,10 @@ class TeamMember < ActiveRecord::Base
 	belongs_to :chassis_manufacturer
 	belongs_to :race
 
-	def initialize(name, round)
-      @name   = name.capitalize
-      @round  = round
-    end
+	# def initialize(name, round)
+ #      @name   = name.capitalize
+ #      @round  = round
+ #    end
 
 	def self.tmembers
 		racers = {}
