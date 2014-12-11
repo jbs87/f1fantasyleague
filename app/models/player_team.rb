@@ -14,4 +14,17 @@ class PlayerTeam < ActiveRecord::Base
 
   belongs_to :race
 
+  def d1score
+  	primary_driver.score
+  end
+
+  def d2score
+  	secondary_driver.score
+  end
+
+  def totalscore
+  	binding.pry
+  	d1score + d2score + self.engine.score + self.chassis_manufacturer.score
+  end
+
 end
