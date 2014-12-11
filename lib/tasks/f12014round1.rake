@@ -27,6 +27,7 @@ namespace :f1seed do
       engine_id = Engine.find_by(constructorId: result['Constructor']['constructorId']).id
 
       qualifying_pos = nil # get_qualifying_pos(:nickname)
+      # quali_json['MRData']['RaceTable']['Races'][0]['QualifyingResults'].find {|h1| h1['Driver']['driverId']=='kevin_magnussen'}['position']
 
       # qual_results.findWhere('driver_id', driver_id)
 
