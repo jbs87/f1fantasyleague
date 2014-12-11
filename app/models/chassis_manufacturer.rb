@@ -1,6 +1,6 @@
 class ChassisManufacturer < ActiveRecord::Base
 	has_many :player_teams
-	has_many :team_members
+	has_many :race_results
 
 
 	def score

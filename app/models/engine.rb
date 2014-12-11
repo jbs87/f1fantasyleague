@@ -1,6 +1,6 @@
 class Engine < ActiveRecord::Base
 	has_many :player_teams
-	has_many :team_members
+	has_many :race_results
 
 	def score
 	  	rounds = RaceResult.last.race_id #need to be changed to work with date
