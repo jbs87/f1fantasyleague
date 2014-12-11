@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211184547) do
+ActiveRecord::Schema.define(version: 20141211203113) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -54,11 +54,13 @@ ActiveRecord::Schema.define(version: 20141211184547) do
 
   create_table "race_results", force: true do |t|
     t.integer  "race_id"
-    t.integer  "team_member_id"
     t.integer  "qualifying_pos"
     t.integer  "race_pos"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "driver_id"
+    t.integer  "chassis_manufacturer_id"
+    t.integer  "engine_id"
   end
 
   create_table "races", force: true do |t|
