@@ -55,9 +55,9 @@ Engine.create!({ name: 'Sauber', price: 0 })
 Engine.create!({ name: 'Marussia', price: 0 })
 Engine.create!({ name: 'Caterham', price: 0 })
 
-User.create!({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a'})
-User.create!({ name: 'Marge', email: 'marge@home.net', password: 'a'})
-User.create!({ name: 'Lisa', email: 'lisa@home.net', password: 'a'})
+User.create!({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a', password_confirmation: 'a'})
+User.create!({ name: 'Marge', email: 'marge@home.net', password: 'a', password_confirmation: 'a'})
+User.create!({ name: 'Lisa', email: 'lisa@home.net', password: 'a', password_confirmation: 'a'})
 
 PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 1, chassis_manufacturer_id: 2 })
 PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 5, chassis_manufacturer_id: 2 })
