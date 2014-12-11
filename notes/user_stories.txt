@@ -56,6 +56,8 @@ As an Admin,
 
   I want to use a mailer service to send all emails.
 
+  I want to allow API access to the public data.
+
 
 
 
