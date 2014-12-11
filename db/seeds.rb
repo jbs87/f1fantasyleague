@@ -184,3 +184,8 @@ RaceResult.create!({team_member_id: 41, qualifying_pos: 19, race_pos: 19, race_i
 RaceResult.create!({team_member_id: 42, qualifying_pos: 20, race_pos: 20, race_id: 2})
 RaceResult.create!({team_member_id: 43, qualifying_pos: 21, race_pos: 21, race_id: 2})
 RaceResult.create!({team_member_id: 44, qualifying_pos: 22, race_pos: 22, race_id: 2})	
+
+Race.create!({date: Time.new(14,03,01), track_id: 1, name: "Australian GP", round: 1})
+Race.create!({date: Time.new(14,04,01), track_id: 2, name: "Canadian GP", round: 2})
+Race.create!({date: Time.new(14,05,01), track_id: 3, name: "US GP", round: 3})
+Race.create!({date: Time.new(14,06,01), track_id: 4, name: "British GP", round: 4})
