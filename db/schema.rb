@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211203113) do
+ActiveRecord::Schema.define(version: 20141211215755) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -93,9 +93,14 @@ ActiveRecord::Schema.define(version: 20141211203113) do
   end
 
   create_table "tracks", force: true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "circuitId"
+    t.decimal  "lat",         precision: 10, scale: 6
+    t.decimal  "long",        precision: 10, scale: 6
+    t.string   "country"
+    t.string   "locality"
+    t.string   "circuitName"
   end
 
   create_table "users", force: true do |t|
