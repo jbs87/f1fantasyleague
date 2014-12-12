@@ -4,5 +4,6 @@ class TracksController < ApplicationController
   end
 
   def show
+    @track = Track.find(params[:id])
   end
 end
