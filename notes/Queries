@@ -1,28 +1,31 @@
 Homepage
 
-Top 3 players
-News feed last 10 stories
+  - Top 3 players
+  x News feed last 10 stories
 
 Standings
-
-Player rankings( rank, name, score) on a per race basis
+ - Player rankings( rank, name, score) on a per race basis
+ - User standings, paginated.
+ - calculations: user.score
 
 Race calender
+  - needs tracks table.
+  - Race schedule ordered by date 
+	- top 3 qualifiers on completed races
+	- top 3 finishers on completed races
 
-Race schedule ordered by date 
-	top 3 qualifiers on completed races
-	top 3 finishers on completed races
+Transfer market ( rename this to something else)
+	On each of these calculate on a per race basis:
+    Driver: score and value
+  	Chassis: score and value
+  	Engine: score and value
+    historical data ( display individual races)
 
-Transfer market
-	Driver: score and value
-	Chassis: score and value
-	Engine: score and value
-
-on a per race basis
+Game Rules Page
+   Static page with the rules
 
 User profile
 
 Current drivers, chassis, engine
-budget, score, historical data
-
+budget, score, historical data ( display individual races)
 
