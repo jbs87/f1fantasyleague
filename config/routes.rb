@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'users#index'
-
+  resources :tracks,        only: [:index, :show]
   resources :users,         only: [:index, :show, :new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :drivers,       only: [:index]
