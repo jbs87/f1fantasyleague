@@ -14,17 +14,19 @@ class PlayerTeam < ActiveRecord::Base
 
   belongs_to :race
 
-  def d1score
-  	primary_driver.score
+  def d1score(rounds)
+  	primary_driver.score_upto_round(rounds)
   end
 
-  def d2score
-  	secondary_driver.score
+  def d2score(rounds)
+  	secondary_driver.score_upto_round(rounds)
   end
 
-  def totalscore
+  def totalscore(rounds)
   	# binding.pry
-  	d1score + d2score + self.engine.score + self.chassis_manufacturer.score
+  	score = d1score(rounds) + d2score(rounds) + engine.score_upto_round(rounds) 
+    + chassis_manufacturer.score_upto_round(rounds)
+    return score
   end
 
 end

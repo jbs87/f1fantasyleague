@@ -3,8 +3,8 @@ class Engine < ActiveRecord::Base
 	has_many :race_results
 	has_many :races, through: :race_results
 
-	def score_upto_round
-  		rounds = RaceResult.last.race_id #need to be changed to work with date
+	def score_upto_round(rounds)
+  		#rounds = RaceResult.last.race_id #need to be changed to work with date
   		total = 0
 
   		rounds.times do |round|
@@ -24,7 +24,6 @@ class Engine < ActiveRecord::Base
   		qualpoints1 = ScoringOverview.find_by_position(qualpos1).chassis_qual
   		racepoints1 = ScoringOverview.find_by_position(racepos1).chassis_race
   		return qualpoints + racepoints + qualpoints1 + racepoints1
-  		binding.pry
   	end
 
   end

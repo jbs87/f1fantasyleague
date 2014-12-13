@@ -6,4 +6,12 @@ class Race < ActiveRecord::Base
   has_many :engines, through: :race_results
   has_many :chassis_manufacturers, through: :race_results
 
+  def self.raceDates
+  	dateArr = []
+  	Race.all.order(date: :asc).each do |race|
+  		dateArr.push(race.date)
+  	end
+  	return dateArr
+  end
+
 end

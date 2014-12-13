@@ -9,9 +9,9 @@ class Driver < ActiveRecord::Base
 		PlayerTeam.where("driver1_id = ? or driver2_id = ?", self.id, self.id)
 	end
 
-	def score_upto_round
-  	rounds = RaceResult.last.race_id #need to be changed to work with date
-  	total = 0
+	def score_upto_round(rounds)
+  	#rounds = RaceResult.last.race_id #need to be changed to work with date
+    total = 0
 
   	rounds.times do |round|
   		total += score_per_round(round+1)

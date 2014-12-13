@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_filter :require_login
-
+  $rounds_test = 1
   private
   
   def not_authenticated
