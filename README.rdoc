@@ -1,28 +1,13 @@
-== README
+== F1 Fantasy League
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Development
 
-Things you may want to cover:
+The seeds.rb file contains, enough seeds to start a brand new game.
 
-* Ruby version
+The rake task, f1:seedround[round] , will add the race results from 2014 for the round that is specified.
 
-* System dependencies
+```
+rake f1:seedround[7]
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Will add the results for round 7, 2014_Canadian_Grand_Prix 
