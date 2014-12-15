@@ -5,18 +5,18 @@ class Driver < ActiveRecord::Base
 	has_many :race_results
   has_many :races, through: :race_results
 
-	def player_teams
-		PlayerTeam.where("driver1_id = ? or driver2_id = ?", self.id, self.id)
-	end
+  def player_teams
+    PlayerTeam.where("driver1_id = ? or driver2_id = ?", self.id, self.id)
+  end
 
-	def score_upto_round(rounds)
+  def score_upto_round(rounds)
   	#rounds = RaceResult.last.race_id #need to be changed to work with date
     total = 0
 
-  	rounds.times do |round|
-  		total += score_per_round(round+1)
-  	end
-  	return total
+    rounds.times do |round|
+      total += score_per_round(round+1)
+    end
+    return total
   end
 
   def score_per_round(round)
@@ -27,5 +27,23 @@ class Driver < ActiveRecord::Base
     racepoints = ScoringOverview.find_by_position(racepos).driver_race
     return qualpoints + racepoints
   end
+
+  def value_upto_round(rounds)
+    #rounds = RaceResult.last.race_id #need to be changed to work with date
+    total = price
+
+    rounds.times do |round|
+      total += value_per_round(round+1)
+    end
+    return total
+  end
+
+  def value_per_round(round)
+    race_id = races.where(round: round)[0].id
+    racepos = race_results.find_by(race_id: race_id).race_pos
+    racevalue = ValueOverview.find_by_position(racepos).driver_race
+    return racevalue
+  end
+
 
 end

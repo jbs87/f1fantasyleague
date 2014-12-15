@@ -26,7 +26,25 @@ class Engine < ActiveRecord::Base
   		return qualpoints + racepoints + qualpoints1 + racepoints1
   	end
 
-  end
+  	def value_upto_round(rounds)
+    #rounds = RaceResult.last.race_id #need to be changed to work with date
+    total = price
+    rounds.times do |round|
+    	total += value_per_round(round+1)
+    end
+    return total
+end
+
+def value_per_round(round)
+	race_id = races.where(round: round)[0].id
+	racepos = race_results.find_by(race_id: race_id).race_pos
+	racepos1 = race_results.where(race_id: race_id)[1].race_pos
+	racevalue = ValueOverview.find_by_position(racepos).chassis_race
+	racevalue1 = ValueOverview.find_by_position(racepos1).chassis_race
+	return racevalue+racevalue1
+end
+
+end
 
 
 
