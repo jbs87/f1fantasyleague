@@ -8,8 +8,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
-  end
+    # @budget = 350000 # @user.budget
+    # @score = @user.total_score
+    end
   
   def new
      @user = User.new
