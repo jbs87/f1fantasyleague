@@ -37,11 +37,24 @@ class PlayerTeam < ActiveRecord::Base
     return score
   end
 
-    def totalvalue(rounds)
+   def totalvalue(rounds)
     # binding.pry
     value = d1value(rounds) + d2value(rounds) + engine.value_upto_round(rounds) 
     + chassis_manufacturer.value_upto_round(rounds)
     return value
+  end
+
+  def changeBudget
+    netChange = 0
+    round = race.round
+    previousraceId = Race.find_by(round: round-1).id
+    currentTeam = PlayerTeam.where(race_id: previousraceId, user_id: user_id)[0]
+    netChange += (primary_driver.value_upto_round(round)-currentTeam.primary_driver.value_upto_round(round))
+    netChange += (secondary_driver.value_upto_round(round)-currentTeam.secondary_driver.value_upto_round(round))
+    netChange += (chassis_manufacturer.value_upto_round(round)-currentTeam.chassis_manufacturer.value_upto_round(round))
+    netChange += (engine.value_upto_round(round)-currentTeam.engine.value_upto_round(round))
+    binding.pry
+    return (netChange*-1)
   end
 
 end
