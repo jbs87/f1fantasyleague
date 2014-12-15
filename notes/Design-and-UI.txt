@@ -1,0 +1,26 @@
+Design-and-UI
+
+All Pages
+---------
+
+- Top: Menu
+- Footer: none
+
+User Profile page
+-----------------
+
+Display user name and up to date budget and total score.
+
+Display the current Player Team, with graphics.
+  - Primary Driver, Secondary Driver, Constructor, Engine
+
+Display the current Player Team, with dropdown menu.
+  - Primary Driver, Secondary Driver, Constructor, Engine
+
+Display the Player Teams from previous rounds, as table of text.
+  - Table: Round#, Primary, Secondary, Constructor, Engine
+
+
+Transfer Market ( need new name for this page!)
+-----------------------------------------------
+
