@@ -57,4 +57,11 @@ class PlayerTeam < ActiveRecord::Base
     return (netChange*-1)
   end
 
+  def updateable?
+    # race.date.36.hours.from.now > Time.now
+    # race.qualifying_date > Time.now
+    # race.race_results.blank?
+    return true
+  end
+
 end

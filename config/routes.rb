@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   root 'users#index'
+  resources :player_teams,  only: [:index, :create, :update]
   resources :tracks,        only: [:index, :show]
   resources :users,         only: [:index, :show, :new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
