@@ -7,7 +7,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    # binding.pry
+    @current_team = @user.player_teams.last
+    if @current_team && @current_team.updateable?
+      @new_team = @current_team
+    else
+      @new_team = PlayerTeam.new
+    end
+
     # @budget = 350000 # @user.budget
     # @score = @user.total_score
     end

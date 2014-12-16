@@ -1,7 +1,27 @@
-<div class="user-profile-row">
   <div class="user-profile">
-    
     <h1><%= @user.name %></h1>
-
+    <h3>Current Team</h3>
+    <table>
+      <tr>
+        <td>Primary Driver</td>
+        <td>Secondary Driver</td>
+        <td>Constructor</td>
+        <td>Engine</td>
+      </tr>
+      <tr>
+      <% if @current_team %>
+        <td><%= @current_team.primary_driver.name %></td>
+        <td><%= @current_team.secondary_driver.name %></td>
+        <td><%= @current_team.chassis_manufacturer.name %></td>
+        <td><%= @current_team.engine.name %></td>
+        <% end %>
+      </tr>
+    </table>
+    <%= form_for(@new_team) do |f| %>
+      <%= f.collection_select(:primary_driver, Driver.all, :id, :name) %>
+      <%= f.collection_select(:secondary_driver, Driver.all, :id, :name) %>
+      <%= f.collection_select(:chassis_manufacturer, ChassisManufacturer.all, :id, :name) %>
+      <%= f.collection_select(:engine, Engine.all, :id, :name) %>
+      <%= f.submit %>
+    <% end %>
   </div>
-</div>
