@@ -8,7 +8,7 @@
 
 html,
 body {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.5;
   padding: 0;
   margin: 0;
@@ -17,6 +17,11 @@ body {
 .layout {
   @include grid-row();
 }
+
+.layout-row {
+  @include grid-column(12);
+}
+
 .layout-content {
   @include grid-column(12);
    // On medium-up size, make layout-content 9 columns wide

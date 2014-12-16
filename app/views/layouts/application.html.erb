@@ -10,20 +10,52 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="layout">
-      <nav class="layout-menu">
-        <% if current_user %>
-          <%= link_to "Show Profile", user_path(current_user.id) %>
-          <%= link_to "Logout", :logout, method: :post %>
-        <% else %>
-          <%= link_to "Register", new_user_path %> |
-          <%= link_to "Login", :login %>
-        <% end %>
-      </nav>
-      <div class="layout-notice">
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><%= link_to "F1 Fantasy Manager", root_url %></h1>
+            </li>
+             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone, keep the empty span-->
+            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+          </ul>
+
+          <section class="top-bar-section">
+            <!-- Right Nav Section -->
+            <ul class="right">
+              <li><a href="#">Right Button Active</a></li>
+              <li class="has-dropdown">
+                <a href="#">Right Button Dropdown</a>
+                <ul class="dropdown">
+                  <li><a href="#">First link in dropdown</a></li>
+                  <li><a href="#">Active link in dropdown</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <% if current_user %>
+                <li><%= link_to "Show Profile", user_path(current_user.id) %></li>
+                <li><%= link_to "Logout", :logout, method: :post %></li>
+              <% else %>
+                <li><%= link_to "Register", new_user_path %></li>
+                <li><%= link_to "Login", :login %></li>
+              <% end %>
+            </ul>
+          </section>
+        </nav>
+
+      <div class="notice">
+      <% if flash[:notice] %>
+        <div class="notice alert-box info radius"><%= flash[:notice] %></div>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <div class="notice alert-box info radius"><%= flash[:alert] %></div>
+      <% end %>
+        
       </div>
+    <div class="layout">
       <div class="layout-content">
         <%= yield %>
       </div>
