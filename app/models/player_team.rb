@@ -53,7 +53,6 @@ class PlayerTeam < ActiveRecord::Base
     netChange += (secondary_driver.value_upto_round(round)-currentTeam.secondary_driver.value_upto_round(round))
     netChange += (chassis_manufacturer.value_upto_round(round)-currentTeam.chassis_manufacturer.value_upto_round(round))
     netChange += (engine.value_upto_round(round)-currentTeam.engine.value_upto_round(round))
-    binding.pry
     return (netChange*-1)
   end
 
