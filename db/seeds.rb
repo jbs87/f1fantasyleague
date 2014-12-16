@@ -59,11 +59,11 @@ User.create!({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a', pas
 User.create!({ name: 'Marge', email: 'marge@home.net', password: 'a', password_confirmation: 'a'})
 User.create!({ name: 'Lisa', email: 'lisa@home.net', password: 'a', password_confirmation: 'a'})
 
-PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 1, chassis_manufacturer_id: 2 })
-PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 5, chassis_manufacturer_id: 2 })
-PlayerTeam.create!({ user_id: 1, driver1_id: 3, driver2_id: 1, engine_id: 5, chassis_manufacturer_id: 2 })
-PlayerTeam.create!({ user_id: 2, driver1_id: 4, driver2_id: 6, engine_id: 2, chassis_manufacturer_id: 5 })
-PlayerTeam.create!({ user_id: 3, driver1_id: 6, driver2_id: 8, engine_id: 3, chassis_manufacturer_id: 1 })
+PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 1, chassis_manufacturer_id: 2, race_id: 1 })
+PlayerTeam.create!({ user_id: 1, driver1_id: 1, driver2_id: 3, engine_id: 5, chassis_manufacturer_id: 2, race_id: 2 })
+PlayerTeam.create!({ user_id: 1, driver1_id: 3, driver2_id: 1, engine_id: 5, chassis_manufacturer_id: 2, race_id: 3 })
+PlayerTeam.create!({ user_id: 2, driver1_id: 4, driver2_id: 6, engine_id: 2, chassis_manufacturer_id: 5, race_id: 1 })
+PlayerTeam.create!({ user_id: 3, driver1_id: 6, driver2_id: 8, engine_id: 3, chassis_manufacturer_id: 1, race_id: 1 })
 
 ScoringOverview.create!({position:1, driver_qual: 30, driver_race: 100, chassis_qual: 15, chassis_race: 45})
 ScoringOverview.create!({position:2, driver_qual: 20, driver_race: 80, chassis_qual: 10, chassis_race: 35})
