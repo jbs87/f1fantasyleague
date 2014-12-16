@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       @new_team = @current_team
     else
       @new_team = PlayerTeam.new
+      # can set new team default here.
     end
 
     # @budget = 350000 # @user.budget
