@@ -45,6 +45,7 @@ class PlayerTeam < ActiveRecord::Base
   end
 
   def changeBudget
+    binding.pry
     netChange = 0
     round = race.round
     previousraceId = Race.find_by(round: round-1).id
@@ -53,7 +54,6 @@ class PlayerTeam < ActiveRecord::Base
     netChange += (secondary_driver.value_upto_round(round-1)-currentTeam.secondary_driver.value_upto_round(round-1))
     netChange += (chassis_manufacturer.value_upto_round(round-1)-currentTeam.chassis_manufacturer.value_upto_round(round-1))
     netChange += (engine.value_upto_round(round-1)-currentTeam.engine.value_upto_round(round-1))
-    binding.pry
     return (netChange*-1)
   end
 
