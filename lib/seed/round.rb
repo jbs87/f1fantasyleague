@@ -86,6 +86,19 @@ class Seed::Round
       RaceResult.create!({driver_id: driver_id, chassis_manufacturer_id: chassis_manufacturer_id,
                        engine_id: engine_id, race_id: race_id, race_pos: race_pos, qualifying_pos: qualifying_pos})
     end
+    # binding.pry
+    next_race_id = Race.find_by(round: (round.to_i+1) ).id
+
+    teams = PlayerTeam.where(race_id: race_id)
+    teams.each do |team|
+      new_team = team.dup
+      new_team.race_id = next_race_id
+      if new_team.save
+        puts "Updated team #{team.id} to #{new_team.id}"
+      end
+          
+    end
+
   end
 
 end
