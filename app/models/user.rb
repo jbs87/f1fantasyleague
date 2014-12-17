@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
 				budget = 100000000 - player_teams.find_by(race_id: raceId).initTeamPrice
 			else
 				temp = (player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
+				binding.pry
 				budget += player_teams[i].changeBudget + temp
 				# +(player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
 			end
