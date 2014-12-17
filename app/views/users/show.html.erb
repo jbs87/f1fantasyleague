@@ -1,7 +1,24 @@
-<div class="user-profile-row">
-  <div class="user-profile">
-    
-    <h1><%= @user.name %></h1>
+<div class="user-profile">
+  <h1><%= @user.name %></h1>
+  <h3>Current Team</h3>
+  <div class="row">
+    <div class="small-10 columns">
+      
+    <%= form_for(@new_team) do |f| %>
+      <%= f.label "Primary Driver" %>
+      <%= f.collection_select(:driver1_id, Driver.all, :id, :name) %>
 
+      <%= f.label "Secondary Driver" %>
+      <%= f.collection_select(:driver2_id, Driver.all, :id, :name) %>
+
+      <%= f.label "Constructor" %>
+      <%= f.collection_select(:chassis_manufacturer_id, ChassisManufacturer.all, :id, :name) %>
+
+      <%= f.label "Engine" %>
+      <%= f.collection_select(:engine_id, Engine.all, :id, :name) %>
+
+      <%= f.submit %>
+    <% end %>
+    </div>
   </div>
 </div>
