@@ -13,7 +13,7 @@ Driver.create!({ name: 'Sebastian Vettel', price: 54000000, driverId: 'vettel'  
 Driver.create!({ name: 'Valtteri Bottas', price: 22000000, driverId: 'bottas'  })
 Driver.create!({ name: 'Felipe Massa', price: 27000000, driverId: 'massa'  })
 Driver.create!({ name: 'Kimi Räikkönen', price: 53000000, driverId: 'raikkonen'  })
-Driver.create!({ name: 'Fernando Alonso', price: 55000000, driverId: 'alonso'  })
+Driver.create!({ name: 'Fernando Alonso', price: 55000000, driverId: 'alonso',image_url: 'driver/220px-Fernando_Alonso_Bahrain.jpg'  })
 Driver.create!({ name: 'Jenson Button', price: 45000000, driverId: 'button'  })
 Driver.create!({ name: 'Kevin Magnussen', price: 30000000, driverId: 'kevin_magnussen' })
 Driver.create!({ name: 'Nico Hülkenberg', price: 38000000, driverId: 'hulkenberg' })
