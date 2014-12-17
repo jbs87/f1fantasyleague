@@ -18,7 +18,7 @@ class PlayerTeamsController < ApplicationController
     if @player_team.update_attributes(player_team_params)
       redirect_to user_path(current_user), notice: 'Team Updated'
     else
-      render '/users/show'
+      redirect_to user_path(current_user), notice: 'Team NOT Updated'
     end
     
 

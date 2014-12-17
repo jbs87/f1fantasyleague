@@ -1,7 +1,7 @@
 <div class="user-profile">
   <h1><%= @user.name %></h1>
   <h3>Score: <%= @score %></h3>
-  <h3>Budget: <%= @budget %></h3>
+  <h3>Budget: <%= number_to_currency(@budget, precision: 0) %></h3>
   <h3>Current Team</h3>
   <div>
     <%= image_tag @user.player_teams.last.primary_driver.image_url %>

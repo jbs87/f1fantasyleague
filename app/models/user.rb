@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
 	end
 
 	def budget(rounds)
+		binding.pry
 		# testDate = Race.where(round:)[0].date+9.hours
 		budget = 0
 		temp = 0
