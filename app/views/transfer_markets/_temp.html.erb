@@ -1,0 +1,4 @@
+<h2>Drivers</h2>
+<%= render partial: "driver", collection: race.drivers %><br>
+<h2>Chassis/Engines</h2>
+<%= render partial: "engine", collection: race.engines.distinct %>

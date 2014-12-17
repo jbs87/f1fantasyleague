@@ -14,4 +14,8 @@ class Race < ActiveRecord::Base
   	return dateArr
   end
 
+  def daymonth
+    date.to_date
+  end
+
 end

@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
 		raceId = Race.find_by(round: 1).id
 		for i in 0...rounds
 			if(i == 0)
-				binding.pry
 				budget = 100000000 - player_teams.find_by(race_id: raceId).totalvalue(1)
 			else
 				budget += player_teams[i].changeBudget
@@ -62,4 +61,6 @@ class User < ActiveRecord::Base
 			return true
 		end
 	end
+
+
 end

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'races/index'
+
+  get 'races/show'
+
   root 'users#index'
+  resources :transfer_markets,        only: [:index]
   resources :tracks,        only: [:index, :show]
   resources :users,         only: [:index, :show, :new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]

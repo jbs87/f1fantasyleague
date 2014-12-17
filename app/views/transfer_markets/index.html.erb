@@ -1,0 +1,9 @@
+<p>Transfer market</p>
+<%= form_tag transfer_markets_path,method: "get", remote: true do %>
+<%= collection_select(:transfer_market, :id, Race.all, :id, :name) %>
+<%= submit_tag %>
+<% end %>
+<div id="hello">
+<%= render partial: "temp", locals: {race: @race} %>
+</div>
+
