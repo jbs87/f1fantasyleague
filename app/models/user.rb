@@ -45,17 +45,19 @@ class User < ActiveRecord::Base
 		return rounds
 	end
 
-	def budget
+	def budget(rounds)
 		# testDate = Race.where(round:)[0].date+9.hours
 		budget = 0
+		temp = 0
 		# rounds = whichRound(testDate)
-		rounds = 1
 		raceId = Race.find_by(round: 1).id
 		for i in 0...rounds+1
 			if(i == 0)
 				budget = 100000000 - player_teams.find_by(race_id: raceId).initTeamPrice
 			else
-				budget += player_teams[i].changeBudget
+				temp = (player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
+				budget += player_teams[i].changeBudget + temp
+				# +(player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
 			end
 		end
 		return budget
