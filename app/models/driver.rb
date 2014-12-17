@@ -2,7 +2,9 @@ class Driver < ActiveRecord::Base
 
 	has_many :player_teams_as_primary, class_name: "PlayerTeam", foreign_key: 'driver1_id'
 	has_many :player_teams_as_secondary, class_name: "PlayerTeam", foreign_key: 'driver2_id'
-	has_many :race_results
+	has_many :realteams_as_primary, class_name: "Realteam", foreign_key: 'driver1_id'
+  has_many :realteams_as_secondary, class_name: "Realteam", foreign_key: 'driver2_id'
+  has_many :race_results
   has_many :races, through: :race_results
 
   def player_teams
