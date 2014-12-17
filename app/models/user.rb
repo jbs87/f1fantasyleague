@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
 	after_save :create_default_player_team, on: [ :create ]
 
+	def current_score
+		total_score(RaceResult.latest_round)
+	end
+
 	def total_score(rounds)
 		# testDate = Race.where(round: 1)[0].date+9.hours
 		total_score = 0
