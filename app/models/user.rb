@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 		total_score(RaceResult.latest_round)
 	end
 
+	def current_budget
+		budget(RaceResult.latest_round)
+	end
+
 	def total_score(rounds)
 		# testDate = Race.where(round: 1)[0].date+9.hours
 		total_score = 0
@@ -50,6 +54,7 @@ class User < ActiveRecord::Base
 		budget = 0
 		temp = 0
 		# rounds = whichRound(testDate)
+		# binding.pry
 		raceId = Race.find_by(round: 1).id
 		for i in 0...rounds+1
 			if(i == 0)
@@ -72,6 +77,14 @@ class User < ActiveRecord::Base
 	end
 
 	def create_default_player_team
+		# TODO:
+		# If we want User Registration after the season has begun,
+		# then a default player_team needs to be created for that
+		# user for every round up to to and including current round.
+		#
+		# The below only creates a default player team for the
+		# current round
+		#
     primary_driver   = Driver.find_by(name: 'Max Chilton')
     secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
     constructor      = ChassisManufacturer.find_by(name: 'Sauber')
@@ -83,6 +96,5 @@ class User < ActiveRecord::Base
     	                    chassis_manufacturer_id: constructor.id,
     	                    race_id: race_id})
 	end
-
 
 end

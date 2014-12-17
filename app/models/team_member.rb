@@ -21,7 +21,7 @@ class TeamMember < ActiveRecord::Base
 			#racers.push(racer["Driver"]["driverId"])
 			racers[:racer["Driver"]["driverId"]] = racer["Constructor"]["constructorId"]
 		end
-		binding.pry
+		# binding.pry
 	end
 
 	 private

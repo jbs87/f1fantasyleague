@@ -14,6 +14,10 @@ class PlayerTeam < ActiveRecord::Base
 
   belongs_to :race
 
+  validates :user_id, :driver1_id, :driver2_id, :engine_id,
+            :chassis_manufacturer_id, :race_id, presence: true
+  validate :valid_team_selection
+
   def d1score(rounds)
   	primary_driver.score_upto_round(rounds)
   end
@@ -45,7 +49,7 @@ class PlayerTeam < ActiveRecord::Base
   end
 
   def changeBudget
-    binding.pry
+    # binding.pry
     netChange = 0
     round = race.round
     previousraceId = Race.find_by(round: round-1).id
@@ -66,6 +70,13 @@ class PlayerTeam < ActiveRecord::Base
 
   def initTeamPrice
     return (primary_driver.price + secondary_driver.price + engine.price + chassis_manufacturer.price)
+  end
+
+   def valid_team_selection
+    binding.pry
+    if !Realteam.isValidTeam(self)
+      errors.add(:driver1_id, "Driver 1 can't be Team mate")
+    end
   end
 
 end

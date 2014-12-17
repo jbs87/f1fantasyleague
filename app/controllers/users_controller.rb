@@ -17,8 +17,8 @@ class UsersController < ApplicationController
       # can set new team default here.
     end
 
-    @budget = 100000000 # @user.budget
-    @score  = 2456 #@user.current_score
+    @budget = @user.current_budget
+    @score  = @user.current_score
     end
   
   def new
