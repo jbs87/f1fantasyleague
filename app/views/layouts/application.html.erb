@@ -22,6 +22,7 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
+              <li><%= link_to 'Game Rules', '#' %></li>
               <% if current_user %>
                 <li><%= link_to "Manage Team", user_path(current_user.id) %></li>
               <% end %>
