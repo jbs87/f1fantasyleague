@@ -3,6 +3,9 @@
   <h3>Score: <%= @score %></h3>
   <h3>Budget: <%= @budget %></h3>
   <h3>Current Team</h3>
+  <div>
+    <%= image_tag @user.player_teams.last.primary_driver.image_url %>
+  </div>
   <div class="row">
     <div class="small-10 columns">
       

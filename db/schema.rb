@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217182156) do
+ActiveRecord::Schema.define(version: 20141217200038) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20141217182156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "constructorId"
+    t.string   "image_url"
   end
 
   create_table "drivers", force: true do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141217182156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "driverId"
+    t.string   "image_url"
   end
 
   create_table "engines", force: true do |t|
@@ -35,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141217182156) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "constructorId"
+    t.string   "image_url"
   end
 
   create_table "player_teams", force: true do |t|
