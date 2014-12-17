@@ -1,17 +1,7 @@
-<div class = "raceentry">
-<%= race.name %>  <%= race.daymonth %><br>
+<div class = "raceentry" onclick="$('#raceinfo_<%= race.id %>').toggle();">
+	<%= race.name %>  <%= race.daymonth %><br>
 </div>
-<div id ="raceinfo" style= "display:none">
+
+<div id ="raceinfo_<%= race.id %>" style= "display:none">
 	<%= race.date %>
 </div>
-
-
-<script type="text/javascript">
-   $(function(){
-       $('.raceentry').click(function(){
-           $('#raceinfo').toggle();
-       });
-   });
-
-</script>
-

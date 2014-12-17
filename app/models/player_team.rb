@@ -49,10 +49,11 @@ class PlayerTeam < ActiveRecord::Base
     round = race.round
     previousraceId = Race.find_by(round: round-1).id
     currentTeam = PlayerTeam.where(race_id: previousraceId, user_id: user_id)[0]
-    netChange += (primary_driver.value_upto_round(round)-currentTeam.primary_driver.value_upto_round(round))
-    netChange += (secondary_driver.value_upto_round(round)-currentTeam.secondary_driver.value_upto_round(round))
-    netChange += (chassis_manufacturer.value_upto_round(round)-currentTeam.chassis_manufacturer.value_upto_round(round))
-    netChange += (engine.value_upto_round(round)-currentTeam.engine.value_upto_round(round))
+    netChange += (primary_driver.value_upto_round(round-1)-currentTeam.primary_driver.value_upto_round(round-1))
+    netChange += (secondary_driver.value_upto_round(round-1)-currentTeam.secondary_driver.value_upto_round(round-1))
+    netChange += (chassis_manufacturer.value_upto_round(round-1)-currentTeam.chassis_manufacturer.value_upto_round(round-1))
+    netChange += (engine.value_upto_round(round-1)-currentTeam.engine.value_upto_round(round-1))
+    binding.pry
     return (netChange*-1)
   end
 
@@ -61,6 +62,10 @@ class PlayerTeam < ActiveRecord::Base
     # race.qualifying_date > Time.now
     # race.race_results.blank?
     return true
+  end
+
+  def initTeamPrice
+    return (primary_driver.price + secondary_driver.price + engine.price + chassis_manufacturer.price)
   end
 
 end

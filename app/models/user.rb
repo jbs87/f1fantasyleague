@@ -46,13 +46,14 @@ class User < ActiveRecord::Base
 	end
 
 	def budget
-		testDate = Race.where(round: 2)[0].date+9.hours
+		# testDate = Race.where(round:)[0].date+9.hours
 		budget = 0
-		rounds = whichRound(testDate)
+		# rounds = whichRound(testDate)
+		rounds = 1
 		raceId = Race.find_by(round: 1).id
-		for i in 0...rounds
+		for i in 0...rounds+1
 			if(i == 0)
-				budget = 100000000 - player_teams.find_by(race_id: raceId).totalvalue(1)
+				budget = 100000000 - player_teams.find_by(race_id: raceId).initTeamPrice
 			else
 				budget += player_teams[i].changeBudget
 			end
