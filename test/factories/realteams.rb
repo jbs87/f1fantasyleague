@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :realteam do
-    driver1_name "MyString"
-driver2_name "MyString"
-engine_name "MyString"
-chassis_name "MyString"
+    driver1_id 1
+driver2_id 1
+engine_id 1
+chassis_manufacturer_id 1
   end
 
 end

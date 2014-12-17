@@ -1,10 +1,10 @@
 class CreateRealteams < ActiveRecord::Migration
   def change
     create_table :realteams do |t|
-      t.string :driver1_name
-      t.string :driver2_name
-      t.string :engine_name
-      t.string :chassis_name
+      t.integer :driver1_id
+      t.integer :driver2_id
+      t.integer :engine_id
+      t.integer :chassis_manufacturer_id
 
       t.timestamps
     end

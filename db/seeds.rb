@@ -29,18 +29,6 @@ Driver.create!({ name: 'Max Chilton', price: 11000000, driverId: 'chilton' })
 Driver.create!({ name: 'Kamui Kobayashi', price: 18000000, driverId: 'kobayashi' })
 Driver.create!({ name: 'Marcus Ericsson', price: 10000000, driverId: 'ericsson' })
 
-Realteam.create!({driver1_name: 'Nico Rosberg', driver2_name: 'Lewis Hamilton', chassis_name: 'Mercedes Grand Prix', engine_name: 'Mercedes Grand Prix'})
-Realteam.create!({driver1_name: 'Sebastian Vettel', driver2_name: 'Daniel Ricciardo', chassis_name: 'Red Bull', engine_name: 'Red Bull'})
-Realteam.create!({driver1_name: 'Felipe Massa', driver2_name: 'Valtteri Bottas', chassis_name: 'Williams', engine_name: 'Williams'})
-Realteam.create!({driver1_name: 'Kimi Räikkönen', driver2_name: 'Fernando Alonso', chassis_name: 'Ferrari', engine_name: 'Ferrari'})
-Realteam.create!({driver1_name: 'Kevin Magnussen', driver2_name: 'Jenson Button', chassis_name: 'McLaren', engine_name: 'McLaren'})
-Realteam.create!({driver1_name: 'Sergio Perez', driver2_name: 'Nico Hülkenberg', chassis_name: 'Force India F1', engine_name: 'Force India F1'})
-Realteam.create!({driver1_name: 'Jean-Eric Vergne', driver2_name: 'Daniil Kvyat', chassis_name: 'Scuderia Toro Rosso', engine_name: 'Scuderia Toro Rosso'})
-Realteam.create!({driver1_name: 'Romain Grosjean', driver2_name: 'Pastor Maldonado', chassis_name: 'Lotus Renault', engine_name: 'Lotus Renault'})
-Realteam.create!({driver1_name: 'Adrian Sutil', driver2_name: 'Esteban Gutiérrez', chassis_name: 'Sauber', engine_name: 'Sauber'})
-Realteam.create!({driver1_name: 'Max Chilton', driver2_name: 'Jules Bianchi', chassis_name: 'Marussia', engine_name: 'Marussia'})
-Realteam.create!({driver1_name: 'Marcus Ericsson', driver2_name: 'Kamui Kobayashi', chassis_name: 'Caterham', engine_name: 'Caterham'})
-
 ChassisManufacturer.create!({ name: 'Mercedes Grand Prix', price: 55000000, constructorId: 'mercedes' })
 ChassisManufacturer.create!({ name: 'Red Bull', price: 61750000, constructorId: 'red_bull' })
 ChassisManufacturer.create!({ name: 'Williams', price: 25000000, constructorId: 'williams' })
@@ -116,6 +104,18 @@ ValueOverview.create!({position:21, driver_race:-4000000,chassis_race:-1500000})
 ValueOverview.create!({position:22, driver_race:-4500000,chassis_race:-1750000})
 ValueOverview.create!({position:23, driver_race:-5000000,chassis_race:-2000000})
 ValueOverview.create!({position:24, driver_race:-5500000,chassis_race:-2250000})
+
+Realteam.create!({driver1_id: 1,driver2_id: 2,engine_id: 1,chassis_manufacturer_id: 1})
+Realteam.create!({driver1_id: 3,driver2_id: 4,engine_id: 2,chassis_manufacturer_id: 2})
+Realteam.create!({driver1_id: 5,driver2_id: 6,engine_id: 3,chassis_manufacturer_id: 3})
+Realteam.create!({driver1_id: 7,driver2_id: 8,engine_id: 4,chassis_manufacturer_id: 4})
+Realteam.create!({driver1_id: 9,driver2_id: 10,engine_id: 5,chassis_manufacturer_id: 5})
+Realteam.create!({driver1_id: 11,driver2_id: 12,engine_id: 6,chassis_manufacturer_id: 6})
+Realteam.create!({driver1_id: 13,driver2_id: 14,engine_id: 7,chassis_manufacturer_id: 7})
+Realteam.create!({driver1_id: 15,driver2_id: 16,engine_id: 8,chassis_manufacturer_id: 8})
+Realteam.create!({driver1_id: 17,driver2_id: 18,engine_id: 9,chassis_manufacturer_id: 9})
+Realteam.create!({driver1_id: 19,driver2_id: 20,engine_id: 10,chassis_manufacturer_id: 10})
+
 
 
 # populate Tracks
