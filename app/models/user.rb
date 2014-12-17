@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
 	has_many :player_teams
 
+	after_save :create_default_player_team, on: [ :create ]
+
 	def total_score(rounds)
 		# testDate = Race.where(round: 1)[0].date+9.hours
 		total_score = 0
@@ -60,6 +62,19 @@ class User < ActiveRecord::Base
 		else
 			return true
 		end
+	end
+
+	def create_default_player_team
+    primary_driver   = Driver.find_by(name: 'Max Chilton')
+    secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
+    constructor      = ChassisManufacturer.find_by(name: 'Sauber')
+    engine           = Engine.find_by(name: 'Lotus Renault')
+    race_id          = Race.current_race.id
+    player_teams.create({ driver1_id: primary_driver.id,
+    	                    driver2_id: secondary_driver.id,
+    	                    engine_id: engine.id,
+    	                    chassis_manufacturer_id: constructor.id,
+    	                    race_id: race_id})
 	end
 
 
