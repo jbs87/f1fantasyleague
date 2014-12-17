@@ -2,7 +2,8 @@ class TransferMarketsController < ApplicationController
 	def index
 		if params[:transfer_market]
 			@race = Race.find(params[:transfer_market][:id])
-			@round = Race.find(params[:transfer_market][:id]).round
+      # @round = Race.find(params[:transfer_market][:id]).round
+			@round = @race.round
 		else
 			@race = Race.last
 		end
