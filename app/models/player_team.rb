@@ -50,11 +50,22 @@ class PlayerTeam < ActiveRecord::Base
   end
 
   def changeBudget
-    # binding.pry
     netChange = 0
     round = race.round
     previousraceId = Race.find_by(round: round-1).id
     currentTeam = PlayerTeam.where(race_id: previousraceId, user_id: user_id)[0]
+    netChange += (primary_driver.value_upto_round(round-1)-currentTeam.primary_driver.value_upto_round(round-1))
+    netChange += (secondary_driver.value_upto_round(round-1)-currentTeam.secondary_driver.value_upto_round(round-1))
+    netChange += (chassis_manufacturer.value_upto_round(round-1)-currentTeam.chassis_manufacturer.value_upto_round(round-1))
+    netChange += (engine.value_upto_round(round-1)-currentTeam.engine.value_upto_round(round-1))
+    return (netChange*-1)
+  end
+
+   def checkBudget
+    netChange = 0
+    round = race.round
+    raceId = Race.find_by(round: round).id
+    currentTeam = PlayerTeam.find_by(race_id: raceId, user_id: user_id)
     netChange += (primary_driver.value_upto_round(round-1)-currentTeam.primary_driver.value_upto_round(round-1))
     netChange += (secondary_driver.value_upto_round(round-1)-currentTeam.secondary_driver.value_upto_round(round-1))
     netChange += (chassis_manufacturer.value_upto_round(round-1)-currentTeam.chassis_manufacturer.value_upto_round(round-1))
@@ -81,7 +92,7 @@ class PlayerTeam < ActiveRecord::Base
 
   def budget_needs_to_be_positive
     # binding.pry
-    if user.current_budget < changeBudget
+    if (user.current_budget + checkBudget)<0
       errors.add(:budget, "You don't have enough budget")
     end
   end
