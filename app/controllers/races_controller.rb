@@ -1,8 +1,9 @@
 class RacesController < ApplicationController
   def index
-  	@race = Race.all
+  	@races = Race.all
   end
 
   def show
+    @race = Race.find(params[:id])
   end
 end
