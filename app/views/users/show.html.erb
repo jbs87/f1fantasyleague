@@ -3,30 +3,35 @@
   <h3>Score: <%= @score %></h3>
   <h3>Budget: <%= number_to_currency(@budget, precision: 0) %></h3>
   <h3>Current Team</h3>
-  <div>
-    <%= image_tag @user.player_teams.last.primary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.secondary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url %>
-    <%= image_tag @user.player_teams.last.engine.image_url %>
-  </div>
+  <ul class="small-block-grid-2 large-block-grid-2">
+      <li><%= image_tag @user.player_teams.last.primary_driver.image_url %></li>
+      <li><%= image_tag @user.player_teams.last.secondary_driver.image_url %></li>
+      <li><%= image_tag @user.player_teams.last.chassis_manufacturer.image_url %></li>
+      <li><%= image_tag @user.player_teams.last.engine.image_url %></li>
+  </ul>
   <div class="row">
-    <div class="small-10 columns">
       
     <%= form_for(@new_team) do |f| %>
+    <div class="small-6 large-3 columns">
       <%= f.label "Primary Driver" %>
       <%= f.collection_select(:driver1_id, Driver.all, :id, :name) %>
-
+    </div>
+    <div class="small-6  large-3 columns">
       <%= f.label "Secondary Driver" %>
       <%= f.collection_select(:driver2_id, Driver.all, :id, :name) %>
+    </div>
 
+    <div class="small-6  large-3 columns">
       <%= f.label "Constructor" %>
       <%= f.collection_select(:chassis_manufacturer_id, ChassisManufacturer.all, :id, :name) %>
+    </div>
 
+    <div class="small-6 large-3 columns">
       <%= f.label "Engine" %>
       <%= f.collection_select(:engine_id, Engine.all, :id, :name) %>
+    </div>
 
       <%= f.submit %>
     <% end %>
-    </div>
   </div>
 </div>
