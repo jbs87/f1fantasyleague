@@ -1,4 +1,8 @@
 <h2>Drivers</h2>
-<%= render partial: "driver", collection: race.drivers %><br>
+<table style = "width:100%">
+	<%= render partial: "driver", collection: race.drivers.sort {|b,a| a.value_upto_round(@race.round) <=> b.value_upto_round(@race.round)} %>
+</table >
 <h2>Chassis/Engines</h2>
-<%= render partial: "engine", collection: race.engines.distinct %>
+<table style = "width:100%">
+	<%= render partial: "engine", collection: race.engines.distinct.sort {|b,a| a.value_upto_round(@race.round) <=> b.value_upto_round(@race.round)} %>
+</table >

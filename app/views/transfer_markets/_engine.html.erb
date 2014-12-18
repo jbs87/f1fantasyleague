@@ -1,1 +1,1 @@
-<%= engine.name %> <%= number_to_currency(engine.value_upto_round(@round)) %><br>
+<tr><td><%= engine.name %> <div class="inline" style="float: right;"><%= number_to_currency(engine.value_upto_round(@round), precision: 0) %></div></td></tr>
