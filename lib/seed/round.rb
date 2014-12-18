@@ -93,7 +93,7 @@ class Seed::Round
     teams.each do |team|
       new_team = team.dup
       new_team.race_id = next_race_id
-      if !new_team.save
+      if !new_team.save(validate: false)
         puts "There was an error cloning Player team with id: #{team.id}"
       end
           
