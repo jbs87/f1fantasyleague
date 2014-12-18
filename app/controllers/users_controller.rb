@@ -19,7 +19,10 @@ class UsersController < ApplicationController
 
     @budget = @user.current_budget
     @score  = @user.current_score
-    end
+    @driver_names = Driver.all
+    @chassis_manufacturer = ChassisManufacturer.all
+    @engines = Engine.all
+  end
   
   def new
      @user = User.new
