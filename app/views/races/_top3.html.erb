@@ -1,0 +1,8 @@
+<% if race.race_results[0] %>
+<p>Top 3</p>
+<ol>
+	<li><%= race.race_results.order(race_pos: :asc)[0].driver.name%><div class="inline" style="float: right;"><%= race.race_results.order(race_pos: :asc)[0].engine.name%></div></li>
+	<li><%= race.race_results.order(race_pos: :asc)[1].driver.name%><div class="inline" style="float: right;"><%= race.race_results.order(race_pos: :asc)[1].engine.name%></div></li>
+	<li><%= race.race_results.order(race_pos: :asc)[2].driver.name%><div class="inline" style="float: right;"><%= race.race_results.order(race_pos: :asc)[2].engine.name%></div></li>
+</ol>
+<% end %>

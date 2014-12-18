@@ -1,7 +1,14 @@
-<div class = "raceentry" onclick="$('#raceinfo_<%= race.id %>').toggle();">
-	<%= race.name %>  <%= race.daymonth %><br>
-</div>
-
-<div id ="raceinfo_<%= race.id %>" style= "display:none">
+<!-- <div class = "raceentry" onclick="$('#raceinfo_<%= race.id %>').toggle();"> -->
+<dd class="accordion-navigation">
+	<a href="#panel<%= race.round %>b"><%= race.name %>  <span class = "dateex" style="float:right"><%= race.daymonth %></span></a>
+	<div id="panel<%= race.round %>b" class="content" >
+		<div class="row">
+			<div class="small-6 large-5 columns"><%= race.date %></div>
+			<div class="small-6 large-7 columns"><%= render partial: "top3", locals: {race:race} %></div>
+		</div>
+	</div>
+</dd>
+<!-- <div id ="raceinfo_<%= race.id %>" style= "display:none">
 	<%= race.date %>
 </div>
+ -->

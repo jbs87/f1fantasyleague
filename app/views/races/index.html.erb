@@ -1,2 +1,9 @@
 <h1>Race Calender</h1>
-<%= render @races %>
+<body>
+<dl class="accordion" data-accordion data-options="multi_expand:true;toggleable: true">
+	<%= render @races %>
+</dl>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/foundation/foundation.js"></script>
+<script src="js/foundation/foundation.accordion.js"></script>
+</body>
