@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 	end
 
 	def budget(rounds)
-		binding.pry
+		# binding.pry
 		# testDate = Race.where(round:)[0].date+9.hours
 		budget = 0
 		temp = 0
@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
 				budget = 100000000 - player_teams.find_by(race_id: raceId).initTeamPrice
 			else
 				temp = (player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
-				binding.pry
+				# binding.pry
 				budget += player_teams[i].changeBudget + temp
 				# +(player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
 			end
@@ -92,11 +92,12 @@ class User < ActiveRecord::Base
     constructor      = ChassisManufacturer.find_by(name: 'Sauber')
     engine           = Engine.find_by(name: 'Lotus Renault')
     race_id          = Race.current_race.id
-    player_teams.create({ driver1_id: primary_driver.id,
+    default_team = player_teams.build({ driver1_id: primary_driver.id,
     	                    driver2_id: secondary_driver.id,
     	                    engine_id: engine.id,
     	                    chassis_manufacturer_id: constructor.id,
     	                    race_id: race_id})
+    default_team.save(validate: false)
 	end
 
 end

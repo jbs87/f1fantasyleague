@@ -80,7 +80,7 @@ class PlayerTeam < ActiveRecord::Base
   end
 
   def budget_needs_to_be_positive
-    binding.pry
+    # binding.pry
     if user.current_budget < changeBudget
       errors.add(:budget, "You don't have enough budget")
     end
