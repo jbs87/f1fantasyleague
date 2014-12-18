@@ -17,7 +17,7 @@ class PlayerTeam < ActiveRecord::Base
   validates :user_id, :driver1_id, :driver2_id, :engine_id,
             :chassis_manufacturer_id, :race_id, presence: true
   validate :valid_team_selection
-  validate :budget_needs_to_be_positive
+  #validate :budget_needs_to_be_positive
 
   def d1score(rounds)
   	primary_driver.score_upto_round(rounds)
