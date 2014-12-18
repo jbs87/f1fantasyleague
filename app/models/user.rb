@@ -89,8 +89,8 @@ class User < ActiveRecord::Base
 		#
     primary_driver   = Driver.find_by(name: 'Max Chilton')
     secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
-    constructor      = ChassisManufacturer.find_by(name: 'Sauber')
-    engine           = Engine.find_by(name: 'Lotus Renault')
+    constructor      = ChassisManufacturer.find_by(name: 'Sauber F1 Team')
+    engine           = Engine.find_by(name: 'Lotus - Renault')
     race_id          = Race.current_race.id
     default_team = player_teams.build({ driver1_id: primary_driver.id,
     	                    driver2_id: secondary_driver.id,
