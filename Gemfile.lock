@@ -224,7 +224,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.0)
   faker
-  foundation-rails
+  foundation-rails (= 5.4.5)
   guard-rspec
   httparty
   jbuilder (~> 2.0)

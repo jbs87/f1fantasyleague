@@ -1,32 +1,38 @@
 <div class="user-profile">
-  <h1><%= @user.name %></h1>
-  <h3>Score: <%= @score %></h3>
-  <h3>Budget: <%= number_to_currency(@budget, precision: 0) %></h3>
-  <h3>Current Team</h3>
-  <div>
-    <%= image_tag @user.player_teams.last.primary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.secondary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url %>
-    <%= image_tag @user.player_teams.last.engine.image_url %>
-  </div>
-  <div class="row">
-    <div class="small-10 columns">
-      
+<div class="row">
+  <div class="medium-3 large-3 columns add-height"></div>  
+  <div class="medium-6 large-6 columns">
+    <ul class="pricing-table">
+      <li class="title"><%= @user.name %></li>
+      <li class="price">Score: <%= @score %></li>
+      <li class="price">Budget: <%= number_to_currency(@budget, precision: 0) %></li>
+    </ul>
+  </div>  
+  <div class="medium-3 large-3 columns add-height"></div>  
+</div>
+  <h3><%= @user.name.capitalize %>'s Current Team</h3>
+
     <%= form_for(@new_team) do |f| %>
+  <ul class="small-block-grid-2 large-block-grid-2">
+      <li><%= image_tag @user.player_teams.last.primary_driver.image_url %>
       <%= f.label "Primary Driver" %>
       <%= f.collection_select(:driver1_id, Driver.all, :id, :name) %>
-
+      </li>
+      <li><%= image_tag @user.player_teams.last.secondary_driver.image_url %>
       <%= f.label "Secondary Driver" %>
       <%= f.collection_select(:driver2_id, Driver.all, :id, :name) %>
 
+      </li>
+      <li><%= image_tag @user.player_teams.last.chassis_manufacturer.image_url %>
       <%= f.label "Constructor" %>
       <%= f.collection_select(:chassis_manufacturer_id, ChassisManufacturer.all, :id, :name) %>
-
+      </li>
+      <li><%= image_tag @user.player_teams.last.engine.image_url %>
       <%= f.label "Engine" %>
       <%= f.collection_select(:engine_id, Engine.all, :id, :name) %>
+      </li>
 
-      <%= f.submit %>
+  </ul>
+      <%= f.submit 'Update Team', :class => "button round" %>
     <% end %>
-    </div>
-  </div>
 </div>

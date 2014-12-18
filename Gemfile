@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.5'
 
 group :development do
   gem 'pry-rails'

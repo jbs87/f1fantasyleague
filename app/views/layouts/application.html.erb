@@ -48,6 +48,7 @@
         </ul>
       </section>
     </nav>
+    <div class="header-pic"><%= image_tag 'monaco-header.jpg' %></div>
 
     <div class="notice">
     <% if flash[:notice] %>
@@ -63,6 +64,11 @@
     <div class="layout">
       <div class="layout-content">
         <%= yield %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="footer small-12 medium-12 large-12 columns">
+        <div class="copyright">&copy 2014-2015 Fantasy F1 Manager Inc.</div>
       </div>
     </div>
   </body>
