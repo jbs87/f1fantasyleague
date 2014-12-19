@@ -25,8 +25,12 @@ class Race < ActiveRecord::Base
   end
 
   def self.previous_race
-    current_round = RaceResult.latest_round
-    Race.find_by(round: current_round)
+    if RaceResult.any?
+      current_round = RaceResult.latest_round
+      Race.find_by(round: current_round).id
+    else
+      return nil
+    end
   end
 
   def daymonth
