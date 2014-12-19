@@ -17,8 +17,8 @@ class UsersController < ApplicationController
       # can set new team default here.
     end
 
-    @budget = @user.current_budget
-    @score  = @user.current_score
+    @budget = @user.current_budget  #takes 2.0s
+    @score  = @user.current_score   #takes 0.3s
     @driver_names = Driver.all
     @chassis_manufacturer = ChassisManufacturer.all
     @engines = Engine.all
