@@ -12,10 +12,16 @@ body {
   line-height: 1.5;
   padding: 0;
   margin: 0;
+  background-color: #eee;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto; 
 }
 
 .layout {
   @include grid-row();
+  margin-top: 25px;
+
 }
 
 .layout-row {
@@ -41,4 +47,29 @@ body {
   //@media #{$medium-up} {
     //@include grid-column(3);
   //} 
+}
+
+.add-height {
+  height: 10px;
+}
+
+li>img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+.footer {
+  background-color: $oil;
+  color: $snow;
+  height: 45px;
+  margin-top: 15px;
+  
+  .copyright {
+    padding: 14px;
+    font-size: 0.7em;
+  }
 }

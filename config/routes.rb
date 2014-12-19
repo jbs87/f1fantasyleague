@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'engines/show'
+
+  get 'constructors/show'
+
   root 'users#index'
   resources :transfer_markets,        only: [:index]
   resources :player_teams,  only: [:index, :create, :update]
@@ -8,7 +12,9 @@ Rails.application.routes.draw do
   resources :tracks,        only: [:index, :show]
   resources :users,         only: [:index, :show, :new, :create]
   resources :user_sessions, only: [:new, :create, :destroy]
-  resources :drivers,       only: [:index]
+  resources :drivers,       only: [:index, :show]
+  resources :constructors,  only: [:show]
+  resources :engines,  only: [:show]
   
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

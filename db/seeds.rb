@@ -28,6 +28,8 @@ Driver.create!({ name: 'Jules Bianchi', price: 15000000, driverId: 'jules_bianch
 Driver.create!({ name: 'Max Chilton', price: 11000000, driverId: 'chilton',image_url: 'drivers/portrait/chilton1662014.jpg' })
 Driver.create!({ name: 'Kamui Kobayashi', price: 18000000, driverId: 'kobayashi',image_url: 'drivers/portrait/kobayashi1662014.jpg' })
 Driver.create!({ name: 'Marcus Ericsson', price: 10000000, driverId: 'ericsson',image_url: 'drivers/portrait/ericsson1662014.jpg' })
+Driver.create!({ name: 'André Lotterer', price: 10000000, driverId: 'lotterer',image_url: 'drivers/portrait/ericsson1662014.jpg' })
+Driver.create!({ name: 'Will  Stevens', price: 10000000, driverId: 'stevens',image_url: 'drivers/portrait/ericsson1662014.jpg' })
 
 ChassisManufacturer.create!({ name: 'Mercedes GP Petronas F1', price: 55000000, constructorId: 'mercedes',image_url: 'constructors/mercedes2014.jpg' })
 ChassisManufacturer.create!({ name: 'Infiniti Red Bull Racing', price: 61750000, constructorId: 'red_bull',image_url: 'constructors/redbull2014.jpg' })

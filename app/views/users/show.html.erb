@@ -1,32 +1,48 @@
 <div class="user-profile">
-  <h1><%= @user.name %></h1>
-  <h3>Score: <%= @score %></h3>
-  <h3>Budget: <%= number_to_currency(@budget, precision: 0) %></h3>
-  <h3>Current Team</h3>
-  <div>
-    <%= image_tag @user.player_teams.last.primary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.secondary_driver.image_url %>
-    <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url %>
-    <%= image_tag @user.player_teams.last.engine.image_url %>
-  </div>
-  <div class="row">
-    <div class="small-10 columns">
-      
+<div class="row">
+  <div class="medium-3 large-3 columns add-height"></div>  
+  <div class="medium-6 large-6 columns">
+    <ul class="pricing-table">
+      <li class="title"><%= @user.name %></li>
+      <li class="price">Score: <%= @score %></li>
+      <li class="price">Budget: <%= number_to_currency(@budget, precision: 0) %></li>
+    </ul>
+  </div>  
+  <div class="medium-3 large-3 columns add-height"></div>  
+</div>
+  <h3><%= @user.name.capitalize %>'s Current Team</h3>
+
     <%= form_for(@new_team) do |f| %>
-      <%= f.label "Primary Driver" %>
-      <%= f.collection_select(:driver1_id, Driver.all, :id, :name) %>
+  <ul class="small-block-grid-2 large-block-grid-2">
+      <li>
+        <%= f.label "Primary Driver" %>
+        <%= image_tag @user.player_teams.last.primary_driver.image_url, :id => "primary_driver_image" %>
+        <%= f.collection_select(:driver1_id, @driver_names, :id, :name) %>
+      </li>
+      <li>
+        <%= f.label "Secondary Driver" %>
+        <%= image_tag @user.player_teams.last.secondary_driver.image_url, :id => "secondary_driver_image" %>
+        <%= f.collection_select(:driver2_id, @driver_names, :id, :name) %>
+      </li>
+      <li>
+        <%= f.label "Constructor" %>
+        <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url, :id => "constructor_image" %>
+        <%= f.collection_select(:chassis_manufacturer_id, @chassis_manufacturer, :id, :name) %>
+      </li>
+      <li>
+        <%= f.label "Engine" %>
+        <%= image_tag @user.player_teams.last.engine.image_url, :id => "engine_image" %>
+        <%= f.collection_select(:engine_id, @engines, :id, :name) %>
+      </li>
 
-      <%= f.label "Secondary Driver" %>
-      <%= f.collection_select(:driver2_id, Driver.all, :id, :name) %>
-
-      <%= f.label "Constructor" %>
-      <%= f.collection_select(:chassis_manufacturer_id, ChassisManufacturer.all, :id, :name) %>
-
-      <%= f.label "Engine" %>
-      <%= f.collection_select(:engine_id, Engine.all, :id, :name) %>
-
-      <%= f.submit %>
+  </ul>
+    <div class="row">
+  <div class="small-2 medium-5 large-5 columns add-height"></div>  
+  <div class="small-8 medium-2 large-2 columns">
+      <%= f.submit 'Update Team', :class => "button round" %>
+   
+  </div>  
+  <div class="small-2 medium-5 large-2 columns add-height"></div>  
+</div>
     <% end %>
-    </div>
-  </div>
 </div>

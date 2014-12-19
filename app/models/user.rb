@@ -87,17 +87,25 @@ class User < ActiveRecord::Base
 		# The below only creates a default player team for the
 		# current round
 		#
-    primary_driver   = Driver.find_by(name: 'Max Chilton')
-    secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
-    constructor      = ChassisManufacturer.find_by(name: 'Sauber F1 Team')
-    engine           = Engine.find_by(name: 'Lotus - Renault')
-    race_id          = Race.current_race.id
-    default_team = player_teams.build({ driver1_id: primary_driver.id,
-    	                    driver2_id: secondary_driver.id,
-    	                    engine_id: engine.id,
-    	                    chassis_manufacturer_id: constructor.id,
-    	                    race_id: race_id})
-    default_team.save(validate: false)
+		latest_round = RaceResult.latest_round + 1
+
+		(1..latest_round).each do |round|
+
+	    primary_driver   = Driver.find_by(name: 'Max Chilton')
+	    secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
+	    constructor      = ChassisManufacturer.find_by(name: 'Sauber F1 Team')
+	    engine           = Engine.find_by(name: 'Lotus - Renault')
+
+	    # race_id          = Race.current_race.id
+	    race_id          = Race.find_by(round: round).id
+	    
+	    default_team = player_teams.build({ driver1_id: primary_driver.id,
+	    	                    driver2_id: secondary_driver.id,
+	    	                    engine_id: engine.id,
+	    	                    chassis_manufacturer_id: constructor.id,
+	    	                    race_id: race_id})
+	    default_team.save(validate: false)
+	  end
 	end
 
 end
