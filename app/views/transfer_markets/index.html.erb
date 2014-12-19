@@ -1,6 +1,6 @@
 <p>Transfer market</p>
 <%= form_tag transfer_markets_path,method: "get", remote: true do %>
-  <%= collection_select(:transfer_market, :id, Race.all, :id, :name) %>
+  <%= collection_select(:transfer_market, :id, Race.racesWithRaceResults, :id, :name) %>
   <%= submit_tag %>
 <% end %>
 <div id="hello">
