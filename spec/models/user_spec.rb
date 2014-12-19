@@ -9,4 +9,4 @@ describe User do
 	end
 end
 
-binding.pry
+#binding.pry
