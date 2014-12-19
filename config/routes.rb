@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   root 'users#index'
+  
+  get 'pages/rules'
+  get 'pages/about'
+
   resources :transfer_markets, only: [:index]
   resources :player_teams,     only: [:index, :create, :update]
   resources :races,            only: [:index, :show]
@@ -10,7 +14,6 @@ Rails.application.routes.draw do
   resources :drivers,          only: [:index, :show]
   resources :constructors,     only: [:show]
   resources :engines,          only: [:show]
-  resources :pages,            only: [:rules, :about]
   
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

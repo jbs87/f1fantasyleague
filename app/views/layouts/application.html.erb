@@ -22,10 +22,8 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
-              <li><%= link_to 'Game Rules', '#' %></li>
-              <% if current_user %>
-                <li><%= link_to "Manage Team", user_path(current_user.id) %></li>
-              <% end %>
+              <li><%= link_to 'Game Rules', pages_rules_path %></li>
+              <li><%= link_to 'About', pages_about_path %></li>
           <li class="has-dropdown">
             <a href="#">User</a>
             <ul class="dropdown">
@@ -41,6 +39,9 @@
 
         <!-- Left Nav Section -->
         <ul class="left">
+              <% if current_user %>
+                <li><%= link_to "Manage Team", user_path(current_user.id) %></li>
+              <% end %>
         <li><%= link_to 'Standings', users_path %></li>
         <li><%= link_to 'Transfer Market', transfer_markets_path %></li>
         <li><%= link_to 'Race Calendar', races_path %></li>
