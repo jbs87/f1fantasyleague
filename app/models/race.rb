@@ -24,6 +24,11 @@ class Race < ActiveRecord::Base
     Race.find_by(round: current_round)
   end
 
+  def self.previous_race
+    current_round = RaceResult.latest_round
+    Race.find_by(round: current_round)
+  end
+
   def daymonth
     date.to_date
   end
