@@ -50,3 +50,6 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
 end
+
+# load seed.rb file to enter required static tables.
+Rails.application.load_seed
