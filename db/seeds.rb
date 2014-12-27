@@ -150,17 +150,29 @@ races.each do |track|
   Race.find_or_create_by!({track_id: trackId, name: circuitName, date: date, round: round })
 end
 
-# user = User.new({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a', password_confirmation: 'a'})
-# user.save(validate: false)
-
-# user = User.new({ name: 'Marge', email: 'marge@home.net', password: 'a', password_confirmation: 'a'})
-# user.save(validate: false)
-
-# user = User.new({ name: 'Lisa', email: 'lisa@home.net', password: 'a', password_confirmation: 'a'})
-# user.save(validate: false)
-
 # populate round 0 for DriverMarket
 drivers = Driver.all
 drivers.each do |driver|
   driver.driver_markets.create!({round: 0,value: 0,score: 0})
+end
+
+#
+# All above is necessary for the app to run.
+#
+
+# All seeds below should be run only in development.
+if Rails.env.development?
+
+  user = User.new({ name: 'a', email: 'a', password: 'a', password_confirmation: 'a'})
+  user.save(validate: false)
+
+  user = User.new({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a', password_confirmation: 'a'})
+  user.save(validate: false)
+
+  user = User.new({ name: 'Marge', email: 'marge@home.net', password: 'a', password_confirmation: 'a'})
+  user.save(validate: false)
+
+  user = User.new({ name: 'Lisa', email: 'lisa@home.net', password: 'a', password_confirmation: 'a'})
+  user.save(validate: false)
+
 end
