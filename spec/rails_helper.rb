@@ -50,3 +50,18 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
 end
+
+# check if test db has been seeded with static data.
+if ScoringOverview.last
+  puts "Test database contains seed data."
+else
+  puts "Test database DOES NOT contain seed data.\nTo seed test database manualy use:"
+  puts "rake db:reset RAILS_ENV=test\n\n"
+  puts "LOADING seed.rb into test environment..."
+  Rails.application.load_seed
+  if ScoringOverview.last
+    puts "Test database NOW contains seed data."
+  else
+    puts "Could not load seed.rb OR it does not contain proper seed data for testing."
+  end
+end
