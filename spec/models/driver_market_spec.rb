@@ -55,19 +55,13 @@ describe DriverMarket do
 
     describe "Maximum and minimum value capped" do
       it "maximum value is 150M" do
-        @driver.driver_markets.last.update_attribute(:value, 150_000_000)
-        race_result = @driver.race_results.create({chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
-      
-        @driver_round_one = @driver.driver_markets.where(round: 1).last
-        expect(@driver_round_one.value).to eq(150_000_000)
+        driver_market = DriverMarket.create({driver_id: 1, round: 1, value: 150_000_001, score: 0})
+        expect(driver_market.value).to eq(150_000_000)
       end
 
       it "mainimum value is 2M" do
-        @driver.driver_markets.last.update_attribute(:value, 2_000_000)
-        race_result = @driver.race_results.create({chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 20, qualifying_pos: 20})
-      
-        @driver_round_one = @driver.driver_markets.where(round: 1).last
-        expect(@driver_round_one.value).to eq(2_000_000)
+        driver_market = DriverMarket.create({driver_id: 1, round: 1, value: 1_999_999, score: 0})
+        expect(driver_market.value).to eq(2_000_000)
       end
     end
 
