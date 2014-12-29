@@ -17,3 +17,4 @@
 config/secrets.yaml
 app/assets/images/*
 public/assets
+.DS_Store
