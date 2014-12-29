@@ -11,7 +11,7 @@ class TransferMarketsController < ApplicationController
     end
 
     @drivers_market = DriverMarket.where(round: @current_round).order(score: :desc)
-    @selected_race_id = @races.where(round: @current_round).last.id
+    @selected_race_id = @races.where(round: @current_round).last.id if @current_round > 0
 
 
 		# respond_to do |format|
