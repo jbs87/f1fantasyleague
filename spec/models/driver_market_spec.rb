@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe DriverMarket do
   before :each do
-    @driver = Driver.create!({ name: 'Nico Rosberg', price: 50_000_000,
-                               driverId: 'rosberg',image_url: 'drivers/portrait/rosberg1662014.jpg' })
+    @driver = Driver.find_by(name: 'Nico Rosberg')
     @driver.driver_markets.create!({round: 0,value: 50_000_000,score: 0})
     @round_zero = DriverMarket.where(round: 0).last
   end
