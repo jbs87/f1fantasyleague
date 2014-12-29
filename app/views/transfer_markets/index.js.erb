@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	$('#hello').html("<%= escape_javascript(render( :partial => "/transfer_markets/temp", :locals => {race: @race})) %>");
+	$('table#driver-market-table tbody').html("<%= j(render partial: 'driver_market', collection: @drivers_market, as: :market) %>");
 });

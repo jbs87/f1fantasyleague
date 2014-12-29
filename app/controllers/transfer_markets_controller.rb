@@ -1,13 +1,19 @@
 class TransferMarketsController < ApplicationController
   skip_before_filter :require_login, only: [:index]
 	def index
-		if params[:transfer_market]
-			@race = Race.find(params[:transfer_market][:id])
-      # @round = Race.find(params[:transfer_market][:id]).round
-			@round = @race.round
-		else
-			@race = Race.last
-		end
+		
+    @races = Race.races_with_results
+    
+    if params[:transfer_market]
+      @current_round = Race.find(params[:transfer_market][:id]).round
+    else
+      @current_round = RaceResult.latest_round
+    end
+
+    @drivers_market = DriverMarket.where(round: @current_round).order(score: :desc)
+    @selected_race_id = @races.where(round: @current_round).last.id
+
+
 		# respond_to do |format|
   #   		format.html  # index.html.erb
   #   		format.js 

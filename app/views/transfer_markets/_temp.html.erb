@@ -1,4 +1,4 @@
-<% if race.race_results[0] %>
+<% race.race_results[0] %>
 <h2>Drivers</h2>
 <table style = "width:100%">
 	<%= render partial: "driver", collection: race.drivers.sort {|b,a| a.value_upto_round(@race.round) <=> b.value_upto_round(@race.round)} %>

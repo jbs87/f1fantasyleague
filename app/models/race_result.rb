@@ -22,8 +22,9 @@ class RaceResult < ActiveRecord::Base
 
       # after a race result is saved the driver market for the same round needs to be updated.
       round = Race.find_by(id: race_id).round
-      driver_market = driver.driver_markets.find_or_initialize_by(round: 1)
-      driver_market.score = ScoringOverview.race_points_for(race_pos) + ScoringOverview.qualifying_points_for(qualifying_pos)
+      driver_market = driver.driver_markets.find_or_initialize_by(round: round)
+      previous_round_score = driver.driver_markets.where(round: (round-1)).last.score
+      driver_market.score = previous_round_score + ScoringOverview.race_points_for(race_pos) + ScoringOverview.qualifying_points_for(qualifying_pos)
       driver_market.value = driver.driver_markets.where(round: (round-1) ).last.value + ValueOverview.driver_value_change_for(race_pos)
       driver_market.save
 

@@ -21,18 +21,34 @@ describe DriverMarket do
 
     end
 
-    describe "If finishing 1st in qualifying and the race" do
+    describe "After 1st round, finishing 1st in qualifying and the race" do
       before :each do
         @driver.race_results.create({chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
         @driver_round_one = @driver.driver_markets.where(round: 1).last
       end
 
       it "should have total score of 130 points." do
-        expect(@driver_round_one.score).to be(130)
+        expect(@driver_round_one.score).to eq(130)
       end
 
       it "should have total value of 59M" do
-        expect(@driver_round_one.value).to be(59_000_000)
+        expect(@driver_round_one.value).to eq(59_000_000)
+      end
+
+      describe "After 2nd round, qualifying 2nd and finishing 2nd" do
+        before :each do
+          @driver.race_results.create({chassis_manufacturer_id: 1, engine_id: 1, race_id: 2, race_pos: 2, qualifying_pos: 2})
+          @driver_round_two = @driver.driver_markets.where(round: 2).last
+        end
+
+        it "should have a score of 230" do
+          expect(@driver_round_two.score).to eq(230)
+        end
+
+        it "should have total value of 67M" do
+          expect(@driver_round_two.value).to eq(67_000_000)
+        end
+
       end
 
     end

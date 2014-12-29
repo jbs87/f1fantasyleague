@@ -38,6 +38,8 @@ class Race < ActiveRecord::Base
   end
 
   def self.racesWithRaceResults
+    # depricated see below, races_with_results
+    
     races = []
     Race.all.each do |race|
       if race.race_results[0]
@@ -48,4 +50,10 @@ class Race < ActiveRecord::Base
     end
 
   end
+
+  def self.races_with_results
+    current_round = RaceResult.latest_round
+    Race.where("round <= ?", current_round)
+  end
+    
 end
