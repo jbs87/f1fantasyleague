@@ -13,10 +13,5 @@ class TransferMarketsController < ApplicationController
     @drivers_market = DriverMarket.where(round: @current_round).order(score: :desc)
     @selected_race_id = @races.where(round: @current_round).last.id if @current_round > 0
 
-
-		# respond_to do |format|
-  #   		format.html  # index.html.erb
-  #   		format.js 
-  #   	end
     end
 end
