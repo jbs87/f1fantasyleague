@@ -153,7 +153,13 @@ end
 # populate round 0 for DriverMarket
 drivers = Driver.all
 drivers.each do |driver|
-  driver.driver_markets.create!({round: 0,value: driver.price, score: 0})
+  driver.driver_markets.create!({round: 0, value: driver.price, score: 0})
+end
+
+# populate round 0 for ConstructorMarket
+constructors = ChassisManufacturer.all
+constructors.each do |constructor|
+  constructor.constructor_markets.create!({round: 0, value: constructor.price, score: 0})
 end
 
 #

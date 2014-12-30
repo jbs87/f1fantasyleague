@@ -15,5 +15,13 @@ class ScoringOverview < ActiveRecord::Base
     
     ScoringOverview.find_by(position: position).driver_qual
   end
+  
+  def self.constructor_race_points_for(position)
+    ScoringOverview.find_by(position: position).chassis_race
+  end
+
+  def self.constructor_qualifying_points_for(position)
+    ScoringOverview.find_by(position: position).chassis_qual
+  end
 
 end

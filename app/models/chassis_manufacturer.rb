@@ -2,6 +2,7 @@ class ChassisManufacturer < ActiveRecord::Base
 	has_many :player_teams
 	has_many :race_results
   has_many :races, through: :race_results
+  has_many :constructor_markets, foreign_key: "chassis_manufacturers_id"
 
   def score_upto_round(rounds)
       #rounds = RaceResult.last.race_id #need to be changed to work with date
