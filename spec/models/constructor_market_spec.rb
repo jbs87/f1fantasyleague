@@ -38,7 +38,7 @@ describe ConstructorMarket do
         expect(@constructor_round_one.value).to eq(44_500_000)
       end
 
-      describe "After 2nd round, qualifying 2nd and finishing 2nd" do
+      describe "After 2nd round, with Button and Magnussen" do
         before :each do
           @constructor.race_results.create({driver_id: @driver_button.id   , engine_id: 1, race_id: 2, race_pos: 6, qualifying_pos: 10})
           @constructor.race_results.create({driver_id: @driver_magnussen.id, engine_id: 1, race_id: 2, race_pos: 9, qualifying_pos: 8})
