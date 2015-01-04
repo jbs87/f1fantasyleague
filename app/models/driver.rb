@@ -12,17 +12,16 @@ class Driver < ActiveRecord::Base
     race_id = races.where(round: round)[0].id
     racepos = race_results.find_by(race_id: race_id).race_pos
     qualpos = race_results.find_by(race_id: race_id).qualifying_pos
-    score = DRIVER_Q_SCORE[qualpos-1]+DRIVER_R_SCORE[racepos-1]
+    DRIVER_Q_SCORE[qualpos-1]+DRIVER_R_SCORE[racepos-1]
     # qualpoints = ScoringOverview.find_by_position(qualpos).driver_qual
     # racepoints = ScoringOverview.find_by_position(racepos).driver_race
-    return score
   end
 
   def value_per_round(round)
     race_id = races.where(round: round)[0].id
     racepos = race_results.find_by(race_id: race_id).race_pos
-    racevalue = ValueOverview.find_by_position(racepos).driver_race
-    return racevalue
+    DRIVER_VALUE[racepos-1]
+    # racevalue = ValueOverview.find_by_position(racepos).driver_race
   end
 
 

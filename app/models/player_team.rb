@@ -35,13 +35,6 @@ class PlayerTeam < ActiveRecord::Base
     secondary_driver.value_upto_round(rounds)
   end
 
-  def totalscore(rounds)
-  	# binding.pry
-  	score = d1score(rounds) + d2score(rounds) + engine.score_upto_round(rounds) 
-    + chassis_manufacturer.score_upto_round(rounds)
-    return score
-  end
-
    def totalvalue(rounds)
     # binding.pry
     value = d1value(rounds) + d2value(rounds) + engine.value_upto_round(rounds) 
