@@ -15,10 +15,11 @@ class Engine < ActiveRecord::Base
 
   	def score_per_round(round)
   		race_id = races.where(round: round)[0].id
-  		racepos = race_results.where(race_id: race_id)[0].race_pos
-  		qualpos = race_results.where(race_id: race_id)[0].qualifying_pos
-  		racepos1 = race_results.where(race_id: race_id)[1].race_pos
-  		qualpos1 = race_results.where(race_id: race_id)[1].qualifying_pos
+      raceresult = race_results.where(race_id: race_id)
+  		racepos = raceresult[0].race_pos
+  		qualpos = raceresult[0].qualifying_pos
+  		racepos1 = raceresult[1].race_pos
+  		qualpos1 = raceresult[1].qualifying_pos
   		qualpoints = ScoringOverview.find_by_position(qualpos).chassis_qual
   		racepoints = ScoringOverview.find_by_position(racepos).chassis_race
   		qualpoints1 = ScoringOverview.find_by_position(qualpos1).chassis_qual
