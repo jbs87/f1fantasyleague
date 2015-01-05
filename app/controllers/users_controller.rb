@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = current_user
     # binding.pry
     @current_team = @user.player_teams.last
-    if @current_team && @current_team.updateable?
+    if @current_team 
       @new_team = @current_team
     else
       @new_team = PlayerTeam.new

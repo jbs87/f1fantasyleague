@@ -10,8 +10,9 @@ class Driver < ActiveRecord::Base
 
   def score_per_round(round)
     race_id = races.where(round: round)[0].id
-    racepos = race_results.find_by(race_id: race_id).race_pos
-    qualpos = race_results.find_by(race_id: race_id).qualifying_pos
+    raceresult = race_results.find_by(race_id: race_id)
+    racepos = raceresult.race_pos
+    qualpos = raceresult.qualifying_pos
     DRIVER_Q_SCORE[qualpos-1]+DRIVER_R_SCORE[racepos-1]
     # qualpoints = ScoringOverview.find_by_position(qualpos).driver_qual
     # racepoints = ScoringOverview.find_by_position(racepos).driver_race

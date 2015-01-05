@@ -1,0 +1,729 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Output of rails_best_practices</title>
+    <style type="text/css">
+      body {
+        color: #333;
+        background: #eee;
+        padding: 0 20px;
+      }
+      h1 {
+        color: ##4E4E4E;
+      }
+      p {
+        margin: 5px 0;
+      }
+      table {
+        background: white;
+        border: 1px solid #666;
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 14px;
+      }
+      table.result th, table.result td {
+        padding: 4px;
+        border: 1px solid #D0D0D0;
+      }
+      table.result th {
+        background-color: #DFC;
+        color: #337022;
+      }
+      table.result td.filename {
+        color: #ED1556;
+      }
+      table.result tr:hover {
+        background-color: #FFFFC0;
+      }
+      ul {
+        clear: both;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+      }
+      ul li {
+       list-style: none;
+       display: none;
+       float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>rails_best_practices output</h1>
+    <p>
+      Please go to
+      <a href='http://rails-bestpractices.com' target='_blank'>http://rails-bestpractices.com</a>
+      to see more useful Rails Best Practices.
+    </p>
+    <p>
+        Found 64 warnings.
+    </p>
+    <table>
+          <tr>
+              <td>
+                <input type="checkbox" class="error-type" id="AlwaysAddDbIndexReview" value="AlwaysAddDbIndexReview"
+                />&nbsp;<label for="AlwaysAddDbIndexReview">Always Add Db Index</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="RemoveUnusedMethodsInModelsReview" value="RemoveUnusedMethodsInModelsReview"
+                />&nbsp;<label for="RemoveUnusedMethodsInModelsReview">Remove Unused Methods In Models</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="UseModelAssociationReview" value="UseModelAssociationReview"
+                />&nbsp;<label for="UseModelAssociationReview">Use Model Association</label>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <input type="checkbox" class="error-type" id="LawOfDemeterReview" value="LawOfDemeterReview"
+                />&nbsp;<label for="LawOfDemeterReview">Law Of Demeter</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="ReplaceInstanceVariableWithLocalVariableReview" value="ReplaceInstanceVariableWithLocalVariableReview"
+                />&nbsp;<label for="ReplaceInstanceVariableWithLocalVariableReview">Replace Instance Variable With Local Variable</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="RemoveTrailingWhitespaceCheck" value="RemoveTrailingWhitespaceCheck"
+                />&nbsp;<label for="RemoveTrailingWhitespaceCheck">Remove Trailing Whitespace</label>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <input type="checkbox" class="error-type" id="RemoveEmptyHelpersReview" value="RemoveEmptyHelpersReview"
+                />&nbsp;<label for="RemoveEmptyHelpersReview">Remove Empty Helpers</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="SimplifyRenderInControllersReview" value="SimplifyRenderInControllersReview"
+                />&nbsp;<label for="SimplifyRenderInControllersReview">Simplify Render In Controllers</label>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <input type="checkbox" class="error-type" id="RemoveUnusedMethodsInControllersReview" value="RemoveUnusedMethodsInControllersReview"
+                />&nbsp;<label for="RemoveUnusedMethodsInControllersReview">Remove Unused Methods In Controllers</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="SimplifyRenderInViewsReview" value="SimplifyRenderInViewsReview"
+                />&nbsp;<label for="SimplifyRenderInViewsReview">Simplify Render In Views</label>
+              </td>
+          </tr>
+        <tr>
+          <td colspan="3">
+            <button id="show-all">Check all</button>
+            <button id="show-none">Uncheck all</button>
+          </td>
+        </tr>
+    </table>
+    <table class="result">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Line Number</th>
+          <th>Warning Message</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>25</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (constructor_markets => [chassis_manufacturers_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>34</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (driver_markets => [driver_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>83</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (race_results => [race_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>83</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (race_results => [driver_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>83</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (race_results => [chassis_manufacturer_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>83</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (race_results => [engine_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>94</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (races => [track_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>103</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (realteams => [engine_id])</a>
+            </td>
+          </tr>
+          <tr class="AlwaysAddDbIndexReview">
+            <td class='filename'>
+                db/schema.rb
+            </td>
+            <td class='line'>103</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/21-always-add-db-index' target='_blank'>always add db index (realteams => [chassis_manufacturer_id])</a>
+            </td>
+          </tr>
+          <tr class="LawOfDemeterReview">
+            <td class='filename'>
+                app/models/race_result.rb
+            </td>
+            <td class='line'>14</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/15-the-law-of-demeter' target='_blank'>law of demeter</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/constructors_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/drivers_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/engines_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/pages_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/player_teams_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/races_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/tracks_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/transfer_markets_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/user_sessions_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveEmptyHelpersReview">
+            <td class='filename'>
+                app/helpers/users_helper.rb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/72-remove-empty-helpers' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInControllersReview">
+            <td class='filename'>
+                app/controllers/application_controller.rb
+            </td>
+            <td class='line'>10</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (ApplicationController#not_authenticated)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/player_team.rb
+            </td>
+            <td class='line'>38</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (PlayerTeam#totalscore)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/player_team.rb
+            </td>
+            <td class='line'>76</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (PlayerTeam#updateable?)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/race.rb
+            </td>
+            <td class='line'>27</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (Race#previous_race)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/race.rb
+            </td>
+            <td class='line'>40</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (Race#racesWithRaceResults)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/team_member.rb
+            </td>
+            <td class='line'>18</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (TeamMember#tmembers)</a>
+            </td>
+          </tr>
+          <tr class="RemoveUnusedMethodsInModelsReview">
+            <td class='filename'>
+                app/models/user.rb
+            </td>
+            <td class='line'>80</td>
+            <td class='message'>
+              <a href='' target='_blank'>remove unused methods (User#playerTeamChanged)</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/transfer_markets/_engine.html.erb
+            </td>
+            <td class='line'>1</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>9</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>9</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/users/_form.html.erb
+            </td>
+            <td class='line'>6</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/users/_form.html.erb
+            </td>
+            <td class='line'>7</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/users/_form.html.erb
+            </td>
+            <td class='line'>9</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="ReplaceInstanceVariableWithLocalVariableReview">
+            <td class='filename'>
+                app/views/users/_form.html.erb
+            </td>
+            <td class='line'>11</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/27-replace-instance-variable-with-local-variable' target='_blank'>replace instance variable with local variable</a>
+            </td>
+          </tr>
+          <tr class="SimplifyRenderInControllersReview">
+            <td class='filename'>
+                app/controllers/user_sessions_controller.rb
+            </td>
+            <td class='line'>14</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/62-simplify-render-in-controllers' target='_blank'>simplify render in controllers</a>
+            </td>
+          </tr>
+          <tr class="SimplifyRenderInViewsReview">
+            <td class='filename'>
+                app/views/races/_race.html.erb
+            </td>
+            <td class='line'>7</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/61-simplify-render-in-views' target='_blank'>simplify render in views</a>
+            </td>
+          </tr>
+          <tr class="SimplifyRenderInViewsReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/61-simplify-render-in-views' target='_blank'>simplify render in views</a>
+            </td>
+          </tr>
+          <tr class="SimplifyRenderInViewsReview">
+            <td class='filename'>
+                app/views/transfer_markets/_temp.html.erb
+            </td>
+            <td class='line'>9</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/61-simplify-render-in-views' target='_blank'>simplify render in views</a>
+            </td>
+          </tr>
+          <tr class="UseModelAssociationReview">
+            <td class='filename'>
+                app/controllers/player_teams_controller.rb
+            </td>
+            <td class='line'>2</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/2-use-model-association' target='_blank'>use model association (for @player_team)</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/driver_market.rb
+            </td>
+            <td class='line'>6</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/player_team.rb
+            </td>
+            <td class='line'>6</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/race.rb
+            </td>
+            <td class='line'>42</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/race_result.rb
+            </td>
+            <td class='line'>29</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/realteam.rb
+            </td>
+            <td class='line'>5</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/scoring_overview.rb
+            </td>
+            <td class='line'>15</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/team_member.rb
+            </td>
+            <td class='line'>28</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/user.rb
+            </td>
+            <td class='line'>51</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/models/value_overview.rb
+            </td>
+            <td class='line'>2</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/controllers/application_controller.rb
+            </td>
+            <td class='line'>5</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/controllers/player_teams_controller.rb
+            </td>
+            <td class='line'>12</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/controllers/transfer_markets_controller.rb
+            </td>
+            <td class='line'>6</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/controllers/user_sessions_controller.rb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/controllers/users_controller.rb
+            </td>
+            <td class='line'>2</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                config/routes.rb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                db/migrate/20141111211557_add_player_team_id_to_users.rb
+            </td>
+            <td class='line'>2</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                db/migrate/20141210204615_sorcery_core.rb
+            </td>
+            <td class='line'>6</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                lib/seed/round.rb
+            </td>
+            <td class='line'>3</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                notes/team_member.rb
+            </td>
+            <td class='line'>28</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/views/layouts/application.html.erb
+            </td>
+            <td class='line'>61</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/views/pages/rules.html.erb
+            </td>
+            <td class='line'>5</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/views/users/_form.html.erb
+            </td>
+            <td class='line'>17</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+          <tr class="RemoveTrailingWhitespaceCheck">
+            <td class='filename'>
+                app/views/users/show.html.erb
+            </td>
+            <td class='line'>3</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/60-remove-trailing-whitespace' target='_blank'>remove trailing whitespace</a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        $('ul li').show();
+        $('input.error-type[type=checkbox]').prop('checked', true).click(function() {
+          if ($(this).attr('checked')) {
+            $(this).prop('checked', true);
+            $('.'+$(this).val()).show();
+          } else {
+            $(this).prop('checked', false);
+            $('.'+$(this).val()).hide();
+          }
+        });
+        $('#show-all').click(function() {
+          $('input.error-type[type=checkbox]').prop('checked', true);
+          $('table.result tbody tr').show();
+        });
+        $('#show-none').click(function() {
+          $('input.error-type[type=checkbox]').prop('checked', false);
+          $('table.result tbody tr').hide();
+        });
+      });
+    </script>
+  </body>
+</html>

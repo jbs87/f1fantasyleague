@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229235858) do
+ActiveRecord::Schema.define(version: 20150105015101) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -73,6 +73,13 @@ ActiveRecord::Schema.define(version: 20141229235858) do
     t.integer  "chassis_score"
   end
 
+  add_index "player_teams", ["chassis_manufacturer_id"], name: "index_player_teams_on_chassis_manufacturer_id"
+  add_index "player_teams", ["driver1_id"], name: "index_player_teams_on_driver1_id"
+  add_index "player_teams", ["driver2_id"], name: "index_player_teams_on_driver2_id"
+  add_index "player_teams", ["engine_id"], name: "index_player_teams_on_engine_id"
+  add_index "player_teams", ["race_id"], name: "index_player_teams_on_race_id"
+  add_index "player_teams", ["user_id"], name: "index_player_teams_on_user_id"
+
   create_table "race_results", force: true do |t|
     t.integer  "race_id"
     t.integer  "qualifying_pos"
@@ -84,6 +91,11 @@ ActiveRecord::Schema.define(version: 20141229235858) do
     t.integer  "engine_id"
   end
 
+  add_index "race_results", ["chassis_manufacturer_id"], name: "index_race_results_on_chassis_manufacturer_id"
+  add_index "race_results", ["driver_id"], name: "index_race_results_on_driver_id"
+  add_index "race_results", ["engine_id"], name: "index_race_results_on_engine_id"
+  add_index "race_results", ["race_id"], name: "index_race_results_on_race_id"
+
   create_table "races", force: true do |t|
     t.datetime "date"
     t.integer  "track_id"
@@ -93,6 +105,8 @@ ActiveRecord::Schema.define(version: 20141229235858) do
     t.datetime "updated_at"
   end
 
+  add_index "races", ["track_id"], name: "index_races_on_track_id"
+
   create_table "realteams", force: true do |t|
     t.integer  "driver1_id"
     t.integer  "driver2_id"
@@ -101,6 +115,9 @@ ActiveRecord::Schema.define(version: 20141229235858) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "realteams", ["chassis_manufacturer_id"], name: "index_realteams_on_chassis_manufacturer_id"
+  add_index "realteams", ["engine_id"], name: "index_realteams_on_engine_id"
 
   create_table "scoring_overviews", force: true do |t|
     t.integer  "driver_qual"

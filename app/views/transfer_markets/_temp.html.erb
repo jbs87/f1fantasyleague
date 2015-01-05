@@ -5,6 +5,7 @@
 </table >
 <h2>Chassis/Engines</h2>
 <table style = "width:100%">
+binding.pry
 	<%= render partial: "engine", collection: race.engines.distinct.sort {|b,a| a.value_upto_round(@race.round) <=> b.value_upto_round(@race.round)} %>
 </table >
 <% end %>

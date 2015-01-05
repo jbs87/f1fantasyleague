@@ -17,13 +17,20 @@ class User < ActiveRecord::Base
 		budget(RaceResult.latest_round)
 	end
 
+	# def total_score(rounds)
+	# 	total_score = 0
+	# 	pt = player_teams.order(race_id: :asc)
+	# 	rounds.times do |round|
+	# 		total_score += pt[round].primary_driver.score_per_round(round+1)+pt[round].secondary_driver.score_per_round(round+1)+pt[round].chassis_manufacturer.score_per_round(round+1)+pt[round].engine.score_per_round(round+1)
+	# 	end
+	# 	return total_score
+	# end
+
 	def total_score(rounds)
-		# testDate = Race.where(round: 1)[0].date+9.hours
 		total_score = 0
 		pt = player_teams.order(race_id: :asc)
-		# rounds = whichRound(testDate)
 		rounds.times do |round|
-			total_score = total_score+ pt[round].primary_driver.score_per_round(round+1)+pt[round].secondary_driver.score_per_round(round+1)+pt[round].chassis_manufacturer.score_per_round(round+1)+pt[round].engine.score_per_round(round+1)
+			total_score += pt[round].primary_driver.score_per_round(round+1)+pt[round].secondary_driver.score_per_round(round+1)+pt[round].chassis_manufacturer.score_per_round(round+1)+pt[round].engine.score_per_round(round+1)
 		end
 		return total_score
 	end
@@ -52,14 +59,14 @@ class User < ActiveRecord::Base
 	def budget(rounds)
 		# binding.pry
 		# testDate = Race.where(round:)[0].date+9.hours
-		budget = 0
+		budget = 100000000
 		temp = 0
 		# rounds = whichRound(testDate)
 		# binding.pry
 		raceId = Race.find_by(round: 1).id
 		for i in 0...rounds+1
 			if(i == 0)
-				budget = 100000000 - player_teams.find_by(race_id: raceId).initTeamPrice
+				budget -= player_teams.find_by(race_id: raceId).initTeamPrice
 			else
 				temp = (player_teams[i].primary_driver.score_per_round(i)+player_teams[i].secondary_driver.score_per_round(i)+player_teams[i].chassis_manufacturer.score_per_round(i)+player_teams[i].engine.score_per_round(i))*50000
 				# binding.pry
