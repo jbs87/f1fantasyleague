@@ -1,0 +1,32 @@
+Visual Chabges
+
+Add modal login, foundation 5, Reveal Modal.
+Customize background, it's too plain, add color.
+see arstechnica.com
+Race Calendar, add visual element such as down arrow to show
+  the user that each race can be expanded.
+  Also animate, such as slide down and up.
+
+Transfer Market - Update page to display Chassis and Engine
+Also table width.
+
+Pick 2 complimentary new fonts.
+
+score and budget display times.
+
+Drivers page, with graphs.
+
+Features
+--------
+
+Email notification after each race. With your team stats.
+
+Friends
+  - and betting with friends.
+
+Graph score for user and friends on Manage Team page.
+ - graph comparison of primary drivers between friends.
+ - 
+
+Don't let users update during quali and race.
+
