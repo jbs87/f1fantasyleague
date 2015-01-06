@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105015101) do
+ActiveRecord::Schema.define(version: 20150106152709) do
 
   create_table "chassis_manufacturers", force: true do |t|
     t.string   "name"
@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 20150105015101) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "race_id"
-    t.integer  "driver1_score"
-    t.integer  "driver2_score"
-    t.integer  "engine_score"
-    t.integer  "chassis_score"
+    t.integer  "score"
+    t.integer  "budget"
   end
 
   add_index "player_teams", ["chassis_manufacturer_id"], name: "index_player_teams_on_chassis_manufacturer_id"
