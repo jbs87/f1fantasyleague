@@ -11,14 +11,22 @@ class User < ActiveRecord::Base
 
 	def score
 		current_round = RaceResult.latest_round
+		if current_round == 0
+			current_round = 1
+		end
+		
 		race_id = Race.find_by(round: current_round).id
 		score = player_teams.where(race_id: race_id).last.score
 	end
 
 	def budget
 		current_round = RaceResult.latest_round
+		if current_round == 0
+			current_round = 1
+		end
+
 		race_id = Race.find_by(round: current_round)
-		budget = player_teams.where(race_id: race_id).last.score
+		budget = player_teams.where(race_id: race_id).last.budget
 	end
 
 	def current_score
@@ -107,7 +115,7 @@ class User < ActiveRecord::Base
 	    race_id          = Race.find_by(round: round).id
 	    
 	    starting_score = 0
-	    starting_budget = 100_000_000
+	    starting_budget = 14_000_000  # 100M - team_value which is 86M
 
 	    default_team = player_teams.build({ driver1_id: primary_driver.id,
 	    	                    driver2_id: secondary_driver.id,

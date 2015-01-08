@@ -98,4 +98,25 @@ class PlayerTeam < ActiveRecord::Base
     end
   end
 
+  def change_team(player_team_params)
+
+    net_worth = budget
+    net_worth += DriverMarket.find_by(id: driver1_id).value
+    net_worth += DriverMarket.find_by(id: driver2_id).value
+    net_worth += ConstructorMarket.find_by(id: chassis_manufacturer_id).value
+    net_worth += ConstructorMarket.find_by(id: engine_id).value
+    
+    if update_attributes(player_team_params)
+
+      new_budget = net_worth
+      new_budget -= DriverMarket.find_by(id: driver1_id).value
+      new_budget -= DriverMarket.find_by(id: driver2_id).value
+      new_budget -= ConstructorMarket.find_by(id: chassis_manufacturer_id).value
+      new_budget -= ConstructorMarket.find_by(id: engine_id).value
+
+      update_attributes({budget: new_budget})
+    end
+
+  end
+
 end

@@ -15,14 +15,12 @@ class PlayerTeamsController < ApplicationController
   def update
     @player_team = PlayerTeam.find(params[:id])
     @player_team.race_id = Race.current_race.id
-    if @player_team.update_attributes(player_team_params)
+    if @player_team.change_team(player_team_params)
       redirect_to user_path(current_user), notice: 'Team Updated'
     else
       redirect_to user_path(current_user), notice: 'Team NOT Updated'
     end
     
-
-
   end
 
   def index
