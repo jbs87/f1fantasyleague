@@ -106,16 +106,15 @@ class PlayerTeam < ActiveRecord::Base
     net_worth += ConstructorMarket.find_by(id: chassis_manufacturer_id).value
     net_worth += ConstructorMarket.find_by(id: engine_id).value
     
-    if update_attributes(player_team_params)
+    update_attributes(player_team_params)
 
-      new_budget = net_worth
-      new_budget -= DriverMarket.find_by(id: driver1_id).value
-      new_budget -= DriverMarket.find_by(id: driver2_id).value
-      new_budget -= ConstructorMarket.find_by(id: chassis_manufacturer_id).value
-      new_budget -= ConstructorMarket.find_by(id: engine_id).value
+    new_budget = net_worth
+    new_budget -= DriverMarket.find_by(id: driver1_id).value
+    new_budget -= DriverMarket.find_by(id: driver2_id).value
+    new_budget -= ConstructorMarket.find_by(id: chassis_manufacturer_id).value
+    new_budget -= ConstructorMarket.find_by(id: engine_id).value
 
-      update_attributes({budget: new_budget})
-    end
+    update_attributes({budget: new_budget})
 
   end
 

@@ -22,6 +22,10 @@ class UsersController < ApplicationController
       # budget AKA money_on_hand = net_worth - value_of_of_player_team
       # caviat, the value_of_of_player_team, fluctuates.
     @score  = @user.current_score   #takes 0.3s
+
+    @budget = @user.budget
+    @score  = @user.score
+
     @driver_names = Driver.all
     @chassis_manufacturer = ChassisManufacturer.all
     @engines = Engine.all

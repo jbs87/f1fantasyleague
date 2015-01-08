@@ -34,22 +34,29 @@ describe PlayerTeam do
   describe "when team changes" do
     before :each do
       
-      primary_driver   = Driver.find_by(name: 'Kamui Kobayashi')
-      secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
-      constructor      = ChassisManufacturer.find_by(name: 'Lotus F1 Team')
-      engine           = Engine.find_by(name: 'Toro Rosso - Renault')
+      @primary_driver   = Driver.find_by(name: 'Kamui Kobayashi')
+      @secondary_driver = Driver.find_by(name: 'Marcus Ericsson')
+      @engine           = Engine.find_by(name: 'Toro Rosso - Renault')
+      @constructor      = ChassisManufacturer.find_by(name: 'Lotus F1 Team')
 
       @player_team = @user.player_teams.last
       @player_team.change_team({
-                                        driver1_id: primary_driver.id,
-                                        driver2_id: secondary_driver.id,
-                                        engine_id: engine.id,
-                                        chassis_manufacturer_id: constructor.id})
+                                        driver1_id: @primary_driver.id,
+                                        driver2_id: @secondary_driver.id,
+                                        engine_id:  @engine.id,
+                                        chassis_manufacturer_id: @constructor.id})
 
     end
     
     it "should have same net worth" do
       expect(@player_team.budget).to eq(15_000_000)
+    end
+
+    it "should have a new team" do
+      expect(@player_team.driver1_id).to eq(@primary_driver.id)
+      expect(@player_team.driver2_id).to eq(@secondary_driver.id)
+      expect(@player_team.engine_id).to eq(@engine.id)
+      expect(@player_team.chassis_manufacturer_id).to eq(@constructor.id)
     end
   end
 end
