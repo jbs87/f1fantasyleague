@@ -19,6 +19,7 @@ class PlayerTeam < ActiveRecord::Base
   validate :valid_team_selection
   validate :budget_needs_to_be_positive
 
+
   def d1score(rounds)
   	primary_driver.score_upto_round(rounds)
   end

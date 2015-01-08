@@ -9,22 +9,25 @@ class User < ActiveRecord::Base
 
 	after_save :create_default_player_team, on: [ :create ]
 
+	def score
+		current_round = RaceResult.latest_round
+		race_id = Race.find_by(round: current_round).id
+		score = player_teams.where(race_id: race_id).last.score
+	end
+
+	def budget
+		current_round = RaceResult.latest_round
+		race_id = Race.find_by(round: current_round)
+		budget = player_teams.where(race_id: race_id).last.score
+	end
+
 	def current_score
 		total_score(RaceResult.latest_round)
 	end
 
 	def current_budget
-		budget(RaceResult.latest_round)
+		budget_v1(RaceResult.latest_round)
 	end
-
-	# def total_score(rounds)
-	# 	total_score = 0
-	# 	pt = player_teams.order(race_id: :asc)
-	# 	rounds.times do |round|
-	# 		total_score += pt[round].primary_driver.score_per_round(round+1)+pt[round].secondary_driver.score_per_round(round+1)+pt[round].chassis_manufacturer.score_per_round(round+1)+pt[round].engine.score_per_round(round+1)
-	# 	end
-	# 	return total_score
-	# end
 
 	def total_score(rounds)
 		total_score = 0
@@ -56,7 +59,7 @@ class User < ActiveRecord::Base
 		return rounds
 	end
 
-	def budget(rounds)
+	def budget_v1(rounds)
 		# binding.pry
 		# testDate = Race.where(round:)[0].date+9.hours
 		budget = 100000000
@@ -91,9 +94,6 @@ class User < ActiveRecord::Base
 		# then a default player_team needs to be created for that
 		# user for every round up to to and including current round.
 		#
-		# The below only creates a default player team for the
-		# current round
-		#
 		latest_round = RaceResult.latest_round + 1
 
 		(1..latest_round).each do |round|
@@ -106,11 +106,16 @@ class User < ActiveRecord::Base
 	    # race_id          = Race.current_race.id
 	    race_id          = Race.find_by(round: round).id
 	    
+	    starting_score = 0
+	    starting_budget = 100_000_000
+
 	    default_team = player_teams.build({ driver1_id: primary_driver.id,
 	    	                    driver2_id: secondary_driver.id,
 	    	                    engine_id: engine.id,
 	    	                    chassis_manufacturer_id: constructor.id,
-	    	                    race_id: race_id})
+	    	                    race_id: race_id,
+	    	                    score: starting_score,
+	    	                    budget: starting_budget})
 	    default_team.save(validate: false)
 	  end
 	end
