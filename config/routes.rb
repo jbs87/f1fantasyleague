@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :drivers,          only: [:index, :show]
   resources :constructors,     only: [:show]
   resources :engines,          only: [:show]
-  resources :friendships,          only: [:create]
+  resources :friendships 
+
+  
 
   
   get 'login' => 'user_sessions#new', :as => :login
