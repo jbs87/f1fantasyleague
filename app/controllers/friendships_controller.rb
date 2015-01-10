@@ -1,11 +1,12 @@
 class FriendshipsController < ApplicationController
 
 	before_filter :setup_friends
+	respond_to :html, :js
+
 
 	def create
 		Friendship.request(@user,@friend)
 		flash[:notice] = "Friend request sent"
-		redirect_to user_path(@current_user)
 	end
 
 	def update
@@ -15,23 +16,22 @@ class FriendshipsController < ApplicationController
 		else
 			flash[:notice] = "No friendship request from #{@friend.name}."
 		end
-		redirect_to user_path(@current_user)
 	end
 
-	def cancel
-		if @user.requested_friends.include?(@friend)
-			Friendship.breakup(@user,@friend)
-			flash[:notice] = "Friendship with #{@friend.name} declined!"
-		else
-			flash[:notice] = "No friendship request from #{@friend.name}."
-		end
-		redirect_to user_path(@current_user)
-	end
+	# def cancel
+	# 	binding.pry
+	# 	if @user.requested_friends.include?(@friend)
+	# 		Friendship.breakup(@user,@friend)
+	# 		flash[:notice] = "Friendship with #{@friend.name} declined!"
+	# 	else
+	# 		flash[:notice] = "No friendship request from #{@friend.name}."
+	# 	end
+	# end
 
 	def destroy
 		Friendship.breakup(@user,@friend)
 		flash[:notice] = "Friendship with #{@friend.name} deleted!"
-		redirect_to user_path(@current_user)
+		# redirect_to user_path(@current_user)
 	end
 
 	private

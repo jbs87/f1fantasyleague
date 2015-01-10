@@ -5,7 +5,7 @@
 	<td><% if current_user%>
 		<% unless Friendship.exists?(current_user,user) || user == current_user%>
 		<%= link_to "Add #{user.name}",
-		friendships_path(:id => user.id), :method=> :post %>
+		friendships_path(:id => user.id), :method=> :post, remote: true %>
 		<% end %>
 		<% end %>
 	</td>
