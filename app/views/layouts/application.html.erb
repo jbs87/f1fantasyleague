@@ -30,7 +30,15 @@
               <% if current_user %>
                 <li><%= link_to "Logout", :logout, method: :post %></li>
               <% else %>
-                <li><%= link_to "Login", :login %></li>
+              <li><a href="#" data-reveal-id="myModal">Login</a></li>
+
+
+              <div id="myModal" class="reveal-modal" data-reveal>
+
+                  <%= render partial: 'user_sessions/form' %>
+                  <a class="close-reveal-modal">&#215;</a>
+              </div>
+                <!-- <li><%= link_to "Login", :login %></li> -->
                 <li><%= link_to "Register", new_user_path %></li>
               <% end %>
             </ul>
