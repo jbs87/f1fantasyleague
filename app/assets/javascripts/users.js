@@ -20,7 +20,7 @@ $(document).on('ready page:load',function(){
       }).success(function(data){
         new_image_url = '/assets/' + data.image_url
         $('#primary_driver_image').attr('src',new_image_url)
-        })
+      })
     });
 
     $( "#player_team_driver2_id" ).change(function() {
@@ -38,7 +38,7 @@ $(document).on('ready page:load',function(){
       }).success(function(data){
         new_image_url = '/assets/' + data.image_url
         $('#secondary_driver_image').attr('src',new_image_url)
-        })
+      })
     });
     
     $( "#player_team_chassis_manufacturer_id" ).change(function() {
@@ -56,10 +56,12 @@ $(document).on('ready page:load',function(){
       }).success(function(data){
         new_image_url = '/assets/' + data.image_url
         $('#constructor_image').attr('src',new_image_url)
-        })
+      })
     });
 
-     $( "#player_team_engine_id" ).change(function() {
+
+
+    $( "#player_team_engine_id" ).change(function() {
       // The dropdown menu has been changed.
       // trigger submit on the form
       //$("form").trigger('submit.rails');
@@ -74,7 +76,7 @@ $(document).on('ready page:load',function(){
       }).success(function(data){
         new_image_url = '/assets/' + data.image_url
         $('#engine_image').attr('src',new_image_url)
-        })
+      })
     });   
 
   }

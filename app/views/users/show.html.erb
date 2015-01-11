@@ -1,51 +1,90 @@
+<%= stylesheet_link_tag "flip" %>
 <div class="static-page">
-<div class="row">
-  <div class="medium-3 large-3 columns add-height"></div>  
-  <div class="medium-6 large-6 columns">
-    <ul class="pricing-table">
-      <li class="title"><%= @user.name %></li>
-      <li class="price">Score: <%= @score %></li>
-      <li class="price">Budget: <%= number_to_currency(@budget, precision: 0) %></li>
-    </ul>
-  </div>  
-  <div class="medium-3 large-3 columns add-height"></div>  
-</div>
+  <div class="row">
+    <div class="medium-3 large-3 columns add-height"></div>  
+    <div class="medium-6 large-6 columns">
+      <ul class="pricing-table">
+        <li class="title"><%= @user.name %></li>
+        <li class="price">Score: <%= @score %></li>
+        <li class="price">Budget: <%= number_to_currency(@budget, precision: 0) %></li>
+      </ul>
+    </div>  
+    <div class="medium-3 large-3 columns add-height"></div>  
+  </div>
   <h3><%= @user.name.capitalize %>'s Current Team</h3>
 
-    <%= form_for(@new_team) do |f| %>
+  <%= form_for(@new_team) do |f| %>
   <ul class="small-block-grid-2 large-block-grid-2">
-      <li>
-        <%= f.label "Primary Driver" %>
-        <%= image_tag @user.player_teams.last.primary_driver.image_url, :id => "primary_driver_image" %>
-        <%= f.collection_select(:driver1_id, @driver_names, :id, :name) %>
-      </li>
-      <li>
-        <%= f.label "Secondary Driver" %>
-        <%= image_tag @user.player_teams.last.secondary_driver.image_url, :id => "secondary_driver_image" %>
-        <%= f.collection_select(:driver2_id, @driver_names, :id, :name) %>
-      </li>
-      <li>
-        <%= f.label "Constructor" %>
-        <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url, :id => "constructor_image" %>
-        <%= f.collection_select(:chassis_manufacturer_id, @chassis_manufacturer, :id, :name) %>
-      </li>
-      <li>
-        <%= f.label "Engine" %>
-        <%= image_tag @user.player_teams.last.engine.image_url, :id => "engine_image" %>
-        <%= f.collection_select(:engine_id, @engines, :id, :name) %>
-      </li>
+    <li>
+      <%= f.label "Primary Driver" %>
+      <div class="card">
+        <div class="container">
+          <div class="front">
+            <%= image_tag @user.player_teams.last.primary_driver.image_url, :id => "primary_driver_image" %>
+          </div>
+          <div class="back">
+            <%= image_tag Driver.first.image_url, :id => "primary_driver_image" %>
+          </div>
+        </div>
+      </div>
+
+      <%= f.collection_select(:driver1_id, @driver_names, :id, :name) %>
+    </li>
+    <li>
+      <%= f.label "Secondary Driver" %>
+      <div class="card">
+        <div class="container">
+          <div class="front">
+            <%= image_tag @user.player_teams.last.secondary_driver.image_url, :id => "secondary_driver_image" %>
+          </div>
+          <div class="back">
+            <%= image_tag Driver.first.image_url, :id => "primary_driver_image" %>
+          </div>
+        </div>
+      </div>
+      <%= f.collection_select(:driver2_id, @driver_names, :id, :name) %>
+    </li>
+    <li>
+      <%= f.label "Constructor" %>
+
+      <div class="card">
+        <div class="container">
+          <div class="front">
+            <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url, :id => "constructor_image" %>
+          </div>
+          <div class="back">
+            <p> HELLLL </p>
+          </div>
+        </div>
+      </div>
+      <%= f.collection_select(:chassis_manufacturer_id, @chassis_manufacturer, :id, :name) %>
+    </li>
+    <li>
+      <%= f.label "Engine" %>
+      <div class="card">
+        <div class="container">
+          <div class="front">
+            <%= image_tag @user.player_teams.last.engine.image_url, :id => "engine_image" %>
+          </div>
+          <div class="back">
+            <p> HELLLL </p>
+          </div>
+        </div>
+      </div>
+      <%= f.collection_select(:engine_id, @engines, :id, :name) %>
+    </li>
 
   </ul>
-    <div class="row">
-  <div class="small-2 medium-5 large-5 columns add-height"></div>  
-  <div class="small-8 medium-2 large-2 columns">
+  <div class="row">
+    <div class="small-2 medium-5 large-5 columns add-height"></div>  
+    <div class="small-8 medium-2 large-2 columns">
       <%= f.submit 'Update Team', :class => "button round" %>
-   
-  </div>  
-  <div class="small-2 medium-5 large-2 columns add-height"></div>  
-</div>
-    <% end %>
-    <div id = "friends">
+
+    </div>  
+    <div class="small-2 medium-5 large-2 columns add-height"></div>  
+  </div>
+  <% end %>
+  <div id = "friends">
     <%= render partial: 'friends' %>
-    </div>
+  </div>
 </div>
