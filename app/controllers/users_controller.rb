@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @users = @user.friends.sort{ |x,y| y.current_score <=> x.current_score }
     # binding.pry
     @current_team = @user.player_teams.last
     if @current_team 

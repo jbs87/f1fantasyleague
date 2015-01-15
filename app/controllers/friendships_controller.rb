@@ -7,6 +7,7 @@ class FriendshipsController < ApplicationController
 	def create
 		Friendship.request(@user,@friend)
 		flash[:notice] = "Friend request sent"
+		@users = User.all
 	end
 
 	def update
@@ -16,6 +17,7 @@ class FriendshipsController < ApplicationController
 		else
 			flash[:notice] = "No friendship request from #{@friend.name}."
 		end
+		@users = current_user.friends
 	end
 
 	# def cancel
@@ -31,6 +33,7 @@ class FriendshipsController < ApplicationController
 	def destroy
 		Friendship.breakup(@user,@friend)
 		flash[:notice] = "Friendship with #{@friend.name} deleted!"
+		@users = current_user.friends
 		# redirect_to user_path(@current_user)
 	end
 

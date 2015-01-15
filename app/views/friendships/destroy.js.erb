@@ -1,4 +1,6 @@
 $(document).ready(function() {
 
 	$('#friends').html("<%= j(render partial: '/users/friends') %>");
+	$('#friendscore').html("<%= j(render partial: '/users/standingstable') %>");
+
 });
