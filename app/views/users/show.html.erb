@@ -23,11 +23,10 @@
             <%= image_tag @user.player_teams.last.primary_driver.image_url, :id => "primary_driver_image" %>
           </div>
           <div class="back">
-            <%= image_tag Driver.first.image_url, :id => "primary_driver_image" %>
+            <%= render partial: 'card' %>
           </div>
         </div>
       </div>
-
       <%= f.collection_select(:driver1_id, @driver_names, :id, :name) %>
     </li>
     <li>
@@ -38,7 +37,7 @@
             <%= image_tag @user.player_teams.last.secondary_driver.image_url, :id => "secondary_driver_image" %>
           </div>
           <div class="back">
-            <%= image_tag Driver.first.image_url, :id => "primary_driver_image" %>
+            <%= render partial: 'card1' %>
           </div>
         </div>
       </div>
@@ -53,7 +52,7 @@
             <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url, :id => "constructor_image" %>
           </div>
           <div class="back">
-            <p> HELLLL </p>
+            <%= image_tag @user.player_teams.last.chassis_manufacturer.image_url, :id => "constructor_image" %>
           </div>
         </div>
       </div>
@@ -67,7 +66,7 @@
             <%= image_tag @user.player_teams.last.engine.image_url, :id => "engine_image" %>
           </div>
           <div class="back">
-            <p> HELLLL </p>
+            <%= image_tag @user.player_teams.last.engine.image_url, :id => "engine_image" %>
           </div>
         </div>
       </div>
