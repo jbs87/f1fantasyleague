@@ -3,12 +3,14 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :new, :create]
 
   def index
-    @users = User.all.sort{ |x,y| y.current_score <=> x.current_score }
+    # @users = User.all.sort{ |x,y| y.current_score <=> x.current_score }
+    @users = User.all.sort{ |x,y| y.score <=> x.score }
   end
 
   def show
     @user = current_user
-    @users = @user.friends.sort{ |x,y| y.current_score <=> x.current_score }
+    # @users = @user.friends.sort{ |x,y| y.current_score <=> x.current_score }
+    @users = @user.friends.sort{ |x,y| y.score <=> x.score }
     # binding.pry
     @current_team = @user.player_teams.last
     if @current_team 

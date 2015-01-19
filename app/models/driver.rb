@@ -9,6 +9,7 @@ class Driver < ActiveRecord::Base
   has_many :races, through: :race_results
 
   def score_per_round(round)
+    return 0 if races.empty?
     race_id = races.where(round: round)[0].id
     raceresult = race_results.find_by(race_id: race_id)
     racepos = raceresult.race_pos
@@ -19,6 +20,7 @@ class Driver < ActiveRecord::Base
   end
 
   def value_per_round(round)
+    return 0 if races.empty?
     race_id = races.where(round: round)[0].id
     racepos = race_results.find_by(race_id: race_id).race_pos
     DRIVER_VALUE[racepos-1]

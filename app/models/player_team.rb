@@ -31,18 +31,28 @@ class PlayerTeam < ActiveRecord::Base
     # Adjust score and budget according to game rules.
 
     latest_round = RaceResult.latest_round
-    for_race_id  = Race.find_by(round: latest_round-1).id
+    # binding.pry
+    # return if latest_round < 1
+    for_race_id  = Race.find_by(round: latest_round).id
     teams = PlayerTeam.where(race_id: for_race_id)
     
-    next_race_id = Race.find_by(round: latest_round).id
+    next_race_id = Race.find_by(round: latest_round+1).id
 
     teams.each do |team|
       new_team = team.dup
       new_team.race_id = next_race_id
-      
+      # binding.pry
+      # total_score = new_team.primary_driver.score_per_round(round+1)+pt[round].secondary_driver.score_per_round(round+1)+pt[round].chassis_manufacturer.score_per_round(round+1)+pt[round].engine.score_per_round(round+1)
+      total_score =  new_team.primary_driver.score_per_round(latest_round)
+      total_score += new_team.secondary_driver.score_per_round(latest_round)
+      total_score += new_team.engine.score_per_round(latest_round)
+      total_score += new_team.chassis_manufacturer.score_per_round(latest_round)
+
       # update score and budget
-      new_team.budget = new_team.budget + 1
-      new_team.score  = new_team.score + 1 
+      total_budget = total_score * 50_000
+
+      new_team.budget += total_budget
+      new_team.score  += total_score
 
 
       if !new_team.save(validate: false)

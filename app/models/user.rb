@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
 			current_round = 1
 		end
 		
-		race_id = Race.find_by(round: current_round).id
+		race_id = Race.find_by(round: current_round+1).id
 		score = player_teams.where(race_id: race_id).last.score
 	end
 
