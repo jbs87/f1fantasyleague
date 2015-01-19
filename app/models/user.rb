@@ -19,9 +19,9 @@ class User < ActiveRecord::Base
 
 	def score
 		current_round = RaceResult.latest_round
-		if current_round == 0
-			current_round = 1
-		end
+		# if current_round == 0
+		# 	current_round = 1
+		# end
 		
 		race_id = Race.find_by(round: current_round+1).id
 		score = player_teams.where(race_id: race_id).last.score
@@ -29,11 +29,11 @@ class User < ActiveRecord::Base
 
 	def budget
 		current_round = RaceResult.latest_round
-		if current_round == 0
-			current_round = 1
-		end
+		# if current_round == 0
+		# 	current_round = 1
+		# end
 
-		race_id = Race.find_by(round: current_round)
+		race_id = Race.find_by(round: current_round+1)
 		budget = player_teams.where(race_id: race_id).last.budget
 	end
 

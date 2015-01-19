@@ -12,7 +12,7 @@ body {
   line-height: 1.5;
   padding: 0;
   margin: 0;
-  background-color: #eee;
+  background-color: #aaa;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto; 
@@ -20,7 +20,7 @@ body {
 
 .layout {
   @include grid-row();
-  margin-top: 25px;
+  margin-top: 0px;
 
 }
 
@@ -34,6 +34,7 @@ body {
   //@media #{$medium-up} {
     //@include grid-column(9);
   //} 
+  background-color: #eee;
   
 }
 

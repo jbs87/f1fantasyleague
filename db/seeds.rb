@@ -169,7 +169,7 @@ end
 # All seeds below should be run only in development.
 if Rails.env.development?
 
-  user = User.new({ name: 'a', email: 'a', password: 'a', password_confirmation: 'a'})
+  user = User.new({ name: 'Sam', email: 'a', password: 'a', password_confirmation: 'a'})
   user.save(validate: false)
 
   user = User.new({ name: 'Homer', email: 'homer@powerplant.nuke', password: 'a', password_confirmation: 'a'})

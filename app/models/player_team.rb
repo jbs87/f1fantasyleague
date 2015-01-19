@@ -49,9 +49,8 @@ class PlayerTeam < ActiveRecord::Base
       total_score += new_team.chassis_manufacturer.score_per_round(latest_round)
 
       # update score and budget
-      total_budget = total_score * 50_000
 
-      new_team.budget += total_budget
+      new_team.budget += total_score * 50_000
       new_team.score  += total_score
 
 
