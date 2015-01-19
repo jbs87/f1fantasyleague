@@ -1,0 +1,46 @@
+	<table id = "friends">
+		<% unless @user.friends.empty? %>
+		<tr>
+			<th colspan='3' align='left'>
+				<%= pluralize(@user.friends.count, " friend") %>
+			</th>
+		</tr>
+		<% @user.friends.each do |friend| %>
+		<tr>
+			<td><%= friend.name %></td>
+			<td><%= link_to "Delete", friendship_path(:id => friend), :method => :delete, :remote => true %></td>
+		</tr>
+		<% end %>
+		<% end %>
+		<% unless @user.requested_friends.empty? %>
+		<tr>
+			<th colspan='3' align='left'>
+				<%= pluralize(@user.requested_friends.count, "requested friend") %>
+			</th>
+		</tr>
+		<% @user.requested_friends.each do |requester| %>
+		<tr>
+			<td><%= requester.name %></td>
+			<td>
+				<%= link_to "Accept", friendship_path(:id => requester), :method => "put", :remote => true  %> 
+				<%= link_to "Decline", friendship_path(:id => requester), :method => :delete,  :remote => true  %>
+			</td>
+		</tr>
+		<% end %>
+		<% end %>
+		<% unless @user.pending_friends.empty? %>
+		<tr>
+			<th colspan='3' align='left'>
+				<%= pluralize(@user.pending_friends.count, "pending friend") %>
+			</th>
+		</tr>
+		<% @user.pending_friends.each do |pending| %>
+		<tr>
+			<td>
+				<%= pending.name %>
+			</td>
+			<td><%= link_to "Cancel", friendship_path(:id => pending), :method => :delete , :remote => true %></td>
+		</tr>
+		<% end %>
+		<% end %>
+	</table>

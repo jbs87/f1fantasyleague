@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
+gem 'faye'
+gem 'thin'
 # gem 'simple'
 # set rake version
 gem 'rake', '10.3.2'

@@ -6,6 +6,14 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 
 	has_many :player_teams
+	has_many :friendships
+	# has_many :friends, through: :friendships, condition: "stats='accepted'"
+	# has_many :requested_friends, through: :friendships, source: :friend, condition: "stats='requested'"
+	# has_many :pending_friends, through: :friendships, source: :friend, condition: "stats='pending'"
+	has_many :friends, -> { (where  "friendships.status = 'accepted'").order(name: :desc) }, through: :friendships 
+	has_many :requested_friends, -> { (where  "friendships.status = 'requested'").order(name: :desc) }, through: :friendships, source: :friend
+	has_many :pending_friends, -> { (where  "friendships.status = 'pending'").order(name: :desc) }, through: :friendships  ,source: :friend
+
 
 	after_save :create_default_player_team, on: [ :create ]
 
