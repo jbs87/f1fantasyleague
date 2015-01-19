@@ -29,13 +29,20 @@ class PlayerTeam < ActiveRecord::Base
     # find all PlayerTeam for the last round. (move code from rake task that does this)
     # Duplicate them.
     # Adjust score and budget according to game rules.
-    for_race_id = RaceResult.last.race_id
+
+    latest_round = RaceResult.latest_round
+    for_race_id  = Race.find_by(round: latest_round-1).id
     teams = PlayerTeam.where(race_id: for_race_id)
+    
+    next_race_id = Race.find_by(round: latest_round).id
+
     teams.each do |team|
       new_team = team.dup
       new_team.race_id = next_race_id
       
       # update score and budget
+      new_team.budget = new_team.budget + 1
+      new_team.score  = new_team.score + 1 
 
 
       if !new_team.save(validate: false)

@@ -7,7 +7,6 @@ class RaceResult < ActiveRecord::Base
   after_create :update_driver_market
 
   def self.latest_round
-    # this does not work until there is a race recorded!!
     if RaceResult.all.empty?
       round = 0
     else
