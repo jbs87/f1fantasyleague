@@ -83,21 +83,29 @@ class Seed::Round
 
       qualifying_pos = quali_json['MRData']['RaceTable']['Races'][0]['QualifyingResults'].find {|h1| h1['Driver']['driverId']== driverId}['position']
 
-      RaceResult.create!({driver_id: driver_id, chassis_manufacturer_id: chassis_manufacturer_id,
+      RaceResult.find_or_create_by!({driver_id: driver_id, chassis_manufacturer_id: chassis_manufacturer_id,
                        engine_id: engine_id, race_id: race_id, race_pos: race_pos, qualifying_pos: qualifying_pos})
+    
     end
-    # binding.pry
+
+    # duplicate all users current PlayerTeam(s) in preparation for the next round.
     next_race_id = Race.find_by(round: (round.to_i+1) ).id
 
-    teams = PlayerTeam.where(race_id: race_id)
-    teams.each do |team|
-      new_team = team.dup
-      new_team.race_id = next_race_id
-      if !new_team.save(validate: false)
-        puts "There was an error cloning Player team with id: #{team.id}"
-      end
+    PlayerTeam.update_after_new_race_results
+
+    # teams = PlayerTeam.where(race_id: race_id)
+    # teams.each do |team|
+    #   new_team = team.dup
+    #   new_team.race_id = next_race_id
+      
+    #   # update score and budget
+
+
+    #   if !new_team.save(validate: false)
+    #     puts "There was an error cloning Player team with id: #{team.id}"
+    #   end
           
-    end
+    # end
 
   end
 

@@ -20,6 +20,32 @@ class PlayerTeam < ActiveRecord::Base
   validate :budget_needs_to_be_positive
 
 
+  def self.update_after_new_race_results
+    # Call this method after all race results have been entered for a round.
+    # This method updates all player teams
+
+    # Need to guard against running this method more than once per round.
+
+    # find all PlayerTeam for the last round. (move code from rake task that does this)
+    # Duplicate them.
+    # Adjust score and budget according to game rules.
+    for_race_id = RaceResult.last.race_id
+    teams = PlayerTeam.where(race_id: for_race_id)
+    teams.each do |team|
+      new_team = team.dup
+      new_team.race_id = next_race_id
+      
+      # update score and budget
+
+
+      if !new_team.save(validate: false)
+        puts "There was an error cloning Player team with id: #{team.id}"
+      end
+          
+    end
+
+  end
+
   def d1score(rounds)
   	primary_driver.score_upto_round(rounds)
   end

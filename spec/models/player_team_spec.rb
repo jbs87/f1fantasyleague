@@ -59,4 +59,31 @@ describe PlayerTeam do
       expect(@player_team.chassis_manufacturer_id).to eq(@constructor.id)
     end
   end
+
+  describe "when RaceResults recorded" do
+    before :each do
+      @primary_driver     = Driver.find_by(name: 'Max Chilton')
+      @secondary_driver   = Driver.find_by(name: 'Marcus Ericsson')
+      @constructor_driver = Driver.find_by(name: 'Adrian Sutil')
+      @engine_driver      = Driver.find_by(name: 'Romain Grosjean')
+
+      @primary_driver.race_results.create(    {chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
+      @secondary_driver.race_results.create(  {chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
+      @constructor_driver.race_results.create({chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
+      @engine_driver.race_results.create(     {chassis_manufacturer_id: 1, engine_id: 1, race_id: 1, race_pos: 1, qualifying_pos: 1})
+      
+      PlayerTeam.update_after_new_race_results
+    end
+
+    it "should increase score" do
+      @player_team = @user.player_teams.where(race_id: 1).last
+      expect(@player_team.score).to eq(2)
+      
+    end
+
+    it "should increase budget 50K per point scored in race." do
+      
+    end
+    
+  end
 end
