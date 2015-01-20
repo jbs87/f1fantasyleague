@@ -123,7 +123,8 @@ class User < ActiveRecord::Base
 	    race_id          = Race.find_by(round: round).id
 	    
 	    starting_score = 0
-	    starting_budget = 14_000_000  # 100M - team_value which is 86M
+	    # starting_budget = 14_000_000  # 100M - team_value which is 86M
+	    starting_budget = 64_000_000  # 100M - team_value which is 86M
 
 	    default_team = player_teams.build({ driver1_id: primary_driver.id,
 	    	                    driver2_id: secondary_driver.id,
