@@ -59,7 +59,7 @@
 
 #chat_room{
   background-color: white;
-  border-style:solid;
+  /* border-style:solid; */
   padding-top: 10px; 
   padding-bottom: 10px; 
   padding-left: 10px; 
