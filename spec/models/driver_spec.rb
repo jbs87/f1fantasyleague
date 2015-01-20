@@ -12,7 +12,7 @@ describe Driver do
   end
 
 	describe "#new" do
-		xit "takes parameters and returns a User object" do
+		it "takes parameters and returns a User object" do
 			# expect(@user).to be_an_instance_of User
 		end
 	end
